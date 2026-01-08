@@ -3,37 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dhiraj Patil | Network Engineer</title>
-    <!-- Google Fonts: Roboto for UI, Fira Code for CLI -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <meta name="description" content="Network Engineering Portfolio of Dhiraj Patil - CCNA/CEH Certified Professional specializing in Network Infrastructure, Security, and Automation.">
+    <title>Dhiraj Patil | Network Engineer & Security Analyst</title>
+    
+    <!-- Google Fonts: Inter for UI, Fira Code for CLI -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary-color: #0366d6; /* Cisco Blue */
-            --secondary-color: #24292e; /* Server Rack Grey */
-            --bg-color: #f6f8fa;
-            --panel-bg: #ffffff;
-            --text-main: #24292e;
-            --text-secondary: #586069;
-            --status-ok: #2ea44f;
-            --status-warn: #dbab09;
-            --border: #e1e4e8;
-            --font-ui: 'Roboto', sans-serif;
+            /* Core Palette - Accessible Contrast */
+            --primary-color: #0070f3; /* High-contrast Azure */
+            --primary-hover: #0060df;
+            --secondary-color: #1f2937; /* Slate 800 */
+            --bg-color: #f8fafc;
+            
+            /* Glassmorphism */
+            --panel-bg: rgba(255, 255, 255, 0.85);
+            --panel-border: rgba(255, 255, 255, 0.5);
+            --blur-strength: 16px;
+            
+            /* Typography */
+            --text-main: #111827;
+            --text-secondary: #4b5563;
+            --font-ui: 'Inter', system-ui, -apple-system, sans-serif;
             --font-code: 'Fira Code', monospace;
+            
+            /* Status Indicators */
+            --status-ok: #10b981; /* Emerald */
+            --status-warn: #f59e0b; /* Amber */
+            --status-err: #ef4444; /* Red */
+            
+            /* UI Elements */
+            --border: rgba(226, 232, 240, 0.8);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
 
-        /* Dark Mode Variables */
+        /* Dark Mode Override */
         body.dark-mode {
-            --primary-color: #58a6ff;
-            --secondary-color: #010409; /* Deep dark for top bar background */
-            --bg-color: #0d1117;
-            --panel-bg: #161b22;
-            --text-main: #f0f6fc; /* High contrast text */
-            --text-secondary: #8b949e;
-            --status-ok: #3fb950;
-            --border: #30363d;
+            --primary-color: #3b82f6;
+            --primary-hover: #60a5fa;
+            --secondary-color: #0f172a; /* Slate 900 */
+            --bg-color: #020617; /* Deep Space */
+            
+            --panel-bg: rgba(15, 23, 42, 0.75);
+            --panel-border: rgba(255, 255, 255, 0.1);
+            
+            --text-main: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --border: rgba(55, 65, 81, 0.5);
         }
 
         * { box-sizing: border-box; }
@@ -45,7 +68,31 @@
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
+        
+        /* CTA Button */
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 112, 243, 0.3);
+        }
+
         
         /* View Transition Reset */
         ::view-transition-old(root),
@@ -64,82 +111,113 @@
             z-index: -1;
             opacity: 0.1;
         }
-        body.dark-mode #network-canvas { opacity: 0.2; }
+        body.dark-mode #network-canvas { opacity: 0.25; }
 
         /* Traceroute Style */
         .traceroute-block {
             font-family: var(--font-code);
-            background: #1e1e1e;
-            color: #ccc;
-            padding: 15px;
-            border-radius: 4px;
-            border: 1px solid #333;
+            background: var(--secondary-color);
+            color: var(--text-main);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
             margin-bottom: 20px;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.2);
         }
+        /* Force dark theme for terminal-like components if desired, or adapt */
+        body:not(.dark-mode) .traceroute-block {
+            background: #1e293b; /* Always dark for terminal look */
+            color: #e2e8f0;
+        }
+        
         .hop {
             display: grid;
-            grid-template-columns: 30px 100px 1fr;
-            margin-bottom: 8px;
-            border-bottom: 1px dashed #333;
-            padding-bottom: 5px;
+            grid-template-columns: 40px 110px 1fr;
+            margin-bottom: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
+            align-items: center;
         }
         .hop:last-child { border-bottom: none; }
-        .hop-num { color: #58a6ff; }
-        .hop-time { color: #8b949e; }
-        .hop-name { color: #dcdcaa; font-weight: bold; }
-        .hop-detail { grid-column: 3; color: #8b949e; font-size: 0.85em; margin-top: 2px; }
+        .hop-num { color: var(--primary-color); font-weight: 700; font-size: 1.1rem; }
+        .hop-time { color: #94a3b8; font-size: 0.85rem; }
+        .hop-name { color: #f8fafc; font-weight: bold; font-size: 1rem; }
+        .hop-detail { grid-column: 3; color: #cbd5e1; font-size: 0.85rem; margin-top: 4px; }
 
         /* Switch Port Style Skills */
         .switch-faceplate {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
-            background: #333;
-            padding: 15px;
-            border-radius: 4px;
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+            gap: 12px;
+            background: var(--secondary-color);
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: inset 0 3px 8px rgba(0,0,0,0.2);
+            border: 1px solid var(--border);
         }
         .switch-port {
-            background: #1e1e1e;
-            border: 1px solid #555;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
             padding: 10px;
             width: 80px;
             text-align: center;
             position: relative;
-            border-radius: 2px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
         }
+        .switch-port:hover { transform: translateY(-2px); border-color: var(--primary-color); }
+        
         .port-led {
-            width: 8px;
-            height: 4px;
-            background: #2ea44f;
-            margin: 0 auto 5px;
-            box-shadow: 0 0 5px #2ea44f;
+            width: 10px;
+            height: 6px;
+            background: var(--status-ok);
+            margin: 0 auto 8px;
+            border-radius: 2px;
+            box-shadow: 0 0 8px var(--status-ok);
             animation: blink-random 3s infinite;
         }
         .port-label {
-            color: #fff;
+            color: var(--text-secondary);
             font-size: 0.7rem;
             font-family: var(--font-code);
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
+        /* Hardware look for dark mode */
+        body.dark-mode .switch-faceplate {
+            background: #2a2e33;
+            border-color: #444;
+        }
+        body.dark-mode .switch-port {
+            background: linear-gradient(145deg, #1e2228, #262a30);
+            border-color: #444;
+        }
+        body.dark-mode .port-label { color: #ddd; }
+        
         @keyframes blink-random {
             0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
-            25% { opacity: 0.8; }
-            75% { opacity: 0.5; }
+            50% { opacity: 0.4; }
+            25% { opacity: 0.9; }
+            75% { opacity: 0.6; }
         }
 
         /* Navigation / Top Bar */
         .top-bar {
             background-color: var(--secondary-color);
             color: white;
-            padding: 10px 20px;
+            padding: 12px 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-family: var(--font-code);
             font-size: 0.9rem;
-            border-bottom: 4px solid var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
         }
 
         .status-indicator {
@@ -149,72 +227,90 @@
             background-color: var(--status-ok);
             border-radius: 50%;
             margin-right: 8px;
-            box-shadow: 0 0 5px var(--status-ok);
+            box-shadow: 0 0 8px var(--status-ok);
             animation: pulse 2s infinite;
         }
 
-        @keyframes pulse { 0% { opacity: 0.6; } 50% { opacity: 1; } 100% { opacity: 0.6; } }
+        @keyframes pulse { 0% { opacity: 0.5; transform: scale(0.9); } 50% { opacity: 1; transform: scale(1.1); } 100% { opacity: 0.5; transform: scale(0.9); } }
 
         /* Main Container */
         .dashboard {
-            max-width: 1100px;
-            margin: 30px auto;
+            max-width: 1200px;
+            margin: 40px auto;
             padding: 0 20px;
             display: grid;
-            grid-template-columns: 280px 1fr; /* Sidebar | Main Content */
-            gap: 25px;
+            grid-template-columns: 300px 1fr; /* Sidebar | Main Content */
+            gap: 30px;
         }
 
-        /* Sidebar (Profile & Contact) */
-        .sidebar {
+        /* Sidebar & Panels Common */
+        .sidebar, .panel {
             background: var(--panel-bg);
             border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 20px;
+            border-radius: 12px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Sidebar Specific */
+        .sidebar {
+            padding: 25px;
             height: fit-content;
+            position: sticky;
+            top: 80px;
         }
 
         .profile-header {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
         }
 
         .avatar {
-            width: 100px;
-            height: 100px;
-            background: var(--primary-color);
+            width: 110px;
+            height: 110px;
+            background: linear-gradient(135deg, var(--primary-color), #024ea2);
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin: 0 auto 15px;
+            box-shadow: 0 5px 15px rgba(3, 102, 214, 0.3);
+            border: 4px solid var(--bg-color);
         }
 
-        .sidebar h1 { font-size: 1.5rem; margin: 10px 0 5px; color: var(--text-main); }
-        .sidebar .role { color: var(--primary-color); font-weight: bold; font-size: 0.9rem; margin-bottom: 15px; display: block;}
+        .sidebar h1 { font-size: 1.6rem; margin: 10px 0 5px; color: var(--text-main); letter-spacing: -0.5px; }
+        .sidebar .role { 
+            color: var(--primary-color); 
+            font-weight: 600; 
+            font-size: 0.95rem; 
+            display: inline-block;
+            background: rgba(3, 102, 214, 0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        body.dark-mode .sidebar .role { background: rgba(88, 166, 255, 0.15); }
         
-        .contact-list { list-style: none; padding: 0; font-size: 0.9rem; }
-        .contact-list li { margin-bottom: 12px; display: flex; align-items: center; color: var(--text-secondary); }
-        .contact-list i { width: 25px; color: var(--primary-color); text-align: center; margin-right: 10px; }
-        .contact-list a { color: var(--text-secondary); text-decoration: none; }
-        .contact-list a:hover { color: var(--primary-color); text-decoration: underline; }
+        .contact-list { list-style: none; padding: 0; font-size: 0.95rem; }
+        .contact-list li { margin-bottom: 15px; display: flex; align-items: center; color: var(--text-secondary); transition: transform 0.2s; }
+        .contact-list li:hover { transform: translateX(5px); }
+        .contact-list i { width: 30px; color: var(--primary-color); text-align: center; margin-right: 10px; font-size: 1.1rem; }
+        .contact-list a { color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+        .contact-list a:hover { color: var(--primary-color); }
 
-        /* Main Content */
+        /* Main Content Panels */
         .main-panel {
             display: flex;
             flex-direction: column;
-            gap: 25px;
+            gap: 30px;
         }
 
-        /* Panels */
         .panel {
-            background: var(--panel-bg);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 25px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            padding: 30px;
         }
 
         .panel-header {
@@ -223,17 +319,18 @@
             align-items: center;
             border-bottom: 1px solid var(--border);
             padding-bottom: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .panel-title {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: var(--text-main);
             display: flex;
             align-items: center;
+            letter-spacing: -0.3px;
         }
-        .panel-title i { margin-right: 10px; color: var(--text-secondary); }
+        .panel-title i { margin-right: 12px; color: var(--primary-color); opacity: 0.8; }
 
         /* Metrics / Skills */
         .metrics-grid {
@@ -243,39 +340,47 @@
         }
 
         .metric-card {
-            background: var(--bg-color);
+            background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--border);
-            padding: 15px;
-            border-radius: 4px;
+            padding: 20px;
+            border-radius: 8px;
             position: relative;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .metric-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-color: var(--primary-color);
         }
 
-        .metric-label { font-size: 0.85rem; color: var(--text-secondary); font-weight: bold; text-transform: uppercase; }
-        .metric-value { font-size: 1rem; color: var(--text-main); margin-top: 5px; font-family: var(--font-code); }
+        .metric-label { font-size: 0.8rem; color: var(--text-secondary); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        .metric-value { font-size: 1.1rem; color: var(--text-main); margin-top: 8px; font-family: var(--font-code); }
         .status-dot {
             position: absolute;
-            top: 15px;
-            right: 15px;
-            width: 8px;
-            height: 8px;
+            top: 20px;
+            right: 20px;
+            width: 10px;
+            height: 10px;
             background-color: var(--status-ok);
             border-radius: 50%;
+            box-shadow: 0 0 5px var(--status-ok);
         }
 
         /* Terminal Window for Experience */
         .terminal-window {
-            background-color: #1e1e1e;
-            color: #d4d4d4;
-            border-radius: 6px;
-            padding: 15px;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            border-radius: 8px;
+            padding: 20px;
             font-family: var(--font-code);
             font-size: 0.9rem;
             overflow-x: auto;
-            border: 1px solid #333;
+            border: 1px solid #30363d;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
         }
-        .cli-prompt { color: #4ec9b0; }
-        .cli-cmd { color: #dcdcaa; }
-        .cli-output { color: #ce9178; display: block; margin-bottom: 15px; white-space: pre-wrap; }
+        .cli-prompt { color: #7ee787; font-weight: bold; }
+        .cli-cmd { color: #a5d6ff; }
+        .cli-output { color: #8b949e; display: block; margin-bottom: 15px; white-space: pre-wrap; line-height: 1.5; }
 
         /* Projects */
         .project-item {
@@ -286,15 +391,16 @@
         .project-item h3 { margin: 0 0 5px; color: var(--text-main); }
         .tech-tag {
             display: inline-block;
-            background: var(--bg-color);
+            background: rgba(3, 102, 214, 0.1);
             color: var(--primary-color);
-            padding: 2px 8px;
+            padding: 4px 10px;
             border-radius: 12px;
             font-size: 0.75rem;
-            font-weight: bold;
-            border: 1px solid var(--border);
+            font-weight: 600;
+            border: 1px solid transparent;
             margin-right: 5px;
         }
+        body.dark-mode .tech-tag { background: rgba(56, 139, 253, 0.15); }
 
         /* Theme Toggle */
         .theme-toggle {
@@ -365,64 +471,93 @@
             .avatar { margin: 0 auto 15px; }
             .syslog-footer { display: none; } /* Hide on mobile for space */
         }
-        
-        /* Packet Capture Styles */
+        /* Packet Capture Panel (Visual Upgrade) */
         .packet-panel {
-            min-height: 400px;
+            max-height: 600px;
             display: flex;
             flex-direction: column;
+            overflow: hidden;
+            background: linear-gradient(to bottom, rgba(20, 20, 20, 0.95), rgba(30, 30, 30, 0.95));
+            border: 1px solid #444;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
         }
+        
         .filter-bar {
             display: flex;
             gap: 10px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: rgba(0,0,0,0.2);
+            border-bottom: 1px solid #333;
         }
         .filter-bar input {
-            background: var(--bg-color);
-            border: 1px solid var(--border);
-            color: var(--text-main);
-            padding: 5px 10px;
+            background: #111;
+            border: 1px solid #555;
+            color: #0f0; /* Terminal Green */
+            padding: 8px 12px;
             border-radius: 4px;
             font-family: var(--font-code);
             width: 100%;
+            transition: border-color 0.2s;
         }
+        .filter-bar input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 5px rgba(3, 102, 214, 0.5);
+        }
+
         .table-container {
             flex-grow: 1;
             overflow-y: auto;
-            border: 1px solid var(--border);
-            max-height: 300px;
-            background: var(--bg-color);
+            max-height: 400px;
+            border-top: 1px solid #333;
+            background: #0d1117; /* GitHub Dark */
         }
+        
         table {
             width: 100%;
             border-collapse: collapse;
-            font-family: var(--font-code);
-            font-size: 0.8rem;
+            font-family: 'Fira Code', monospace; /* Monospace for alignment */
+            font-size: 0.85rem;
+            color: #c9d1d9;
         }
-        th, td {
-            text-align: left;
-            padding: 4px 8px;
-            border-bottom: 1px solid var(--border);
-        }
+        
         th {
-            background: var(--secondary-color);
-            color: #fff;
+            text-align: left;
+            padding: 10px;
+            background: #161b22;
+            color: #58a6ff;
+            font-weight: 600;
+            border-bottom: 2px solid #30363d;
             position: sticky;
             top: 0;
+            z-index: 10;
             cursor: pointer;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
         }
-        tr:hover {
-            background-color: rgba(3, 102, 214, 0.1);
+        th:hover { background: #1f2428; }
+
+        td {
+            padding: 6px 10px;
+            border-bottom: 1px solid #21262d;
+            white-space: nowrap;
         }
-        body.dark-mode tr:hover {
-            background-color: rgba(88, 166, 255, 0.1);
+
+        /* Zebra Striping & Hover */
+        tbody tr:nth-child(even) { background-color: rgba(255, 255, 255, 0.02); }
+        tbody tr:hover {
+            background-color: rgba(56, 139, 253, 0.15); /* Highlight color */
+            color: #fff;
         }
-        /* Protocol Colors */
-        .proto-tcp { color: #4a90e2; }
-        .proto-udp { color: #eebb4d; }
-        .proto-icmp { color: #d066e2; }
-        .proto-ospf { color: #7ed321; }
-        .proto-error { color: #e74c3c; font-weight:bold; }
+
+        /* Protocol Specific Colors */
+        .proto-tcp { color: #79c0ff; }
+        .proto-udp { color: #d2a8ff; }
+        .proto-icmp { color: #ff7b72; }
+        .proto-ospf { color: #7ee787; font-weight: bold; }
+        .proto-ssh { color: #f2cc60; }
     </style>
 </head>
 <body>
@@ -430,13 +565,18 @@
 
     <div class="top-bar">
         <div>
-            <span class="status-indicator"></span>
+            <span class="status-indicator" aria-hidden="true"></span>
             <span>SYSTEM STATUS: NORMAL</span>
-            <span id="uptime" style="margin-left: 20px; color: #8b949e;">Uptime: Calculating...</span>
+            <span id="uptime" style="margin-left: 20px; color: var(--text-secondary);">Uptime: Calculating...</span>
         </div>
-        <div>
-            <span style="margin-right: 15px;">User: admin</span>
-            <button class="theme-toggle" onclick="toggleTheme(event)">Dark Mode</button>
+        <div style="display:flex; align-items:center; gap:15px;">
+            <span style="display:none; margin-right: 5px;">User: admin</span>
+            <a href="mailto:dp5545385@gmail.com" class="btn-primary" aria-label="Contact Dhiraj via Email">
+                <i class="fas fa-paper-plane"></i> Contact Me
+            </a>
+            <button class="theme-toggle" onclick="toggleTheme(event)" aria-label="Toggle Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
         </div>
     </div>
 
@@ -451,11 +591,11 @@
             </div>
             
             <ul class="contact-list">
-                <li><i class="fas fa-map-marker-alt"></i> Thane/Mumbai, India</li>
-                <li><i class="fas fa-envelope"></i> <a href="mailto:dp5545385@gmail.com">dp5545385@gmail.com</a></li>
-                <li><i class="fas fa-phone-alt"></i> +91 8652010197</li>
-                <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/dhiraj-patil-20a29122b/">LinkedIn Profile</a></li>
-                <li><i class="fab fa-github"></i> <a href="https://github.com/Argon360">GitHub Profile</a></li>
+                <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Thane/Mumbai, India</li>
+                <li><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:dp5545385@gmail.com" aria-label="Email Dhiraj">dp5545385@gmail.com</a></li>
+                <li><i class="fas fa-phone-alt" aria-hidden="true"></i> +91 8652010197</li>
+                <li><i class="fab fa-linkedin" aria-hidden="true"></i> <a href="https://www.linkedin.com/in/dhiraj-patil-20a29122b/" target="_blank" rel="noopener">LinkedIn Profile</a></li>
+                <li><i class="fab fa-github" aria-hidden="true"></i> <a href="https://github.com/Argon360" target="_blank" rel="noopener">GitHub Profile</a></li>
             </ul>
 
             <div style="margin-top: 25px;">
@@ -708,7 +848,18 @@
                 }
             }
 
-            function animateTraffic() {
+            let lastTime = 0;
+            const fps = 30;
+            const interval = 1000 / fps;
+
+            function animateTraffic(timestamp) {
+                requestAnimationFrame(animateTraffic);
+                
+                const deltaTime = timestamp - lastTime;
+                if (deltaTime < interval) return;
+                
+                lastTime = timestamp - (deltaTime % interval);
+
                 // Clear with slight trail effect
                 ctx.fillStyle = document.body.classList.contains('dark-mode') ? 'rgba(13, 17, 23, 0.3)' : 'rgba(246, 248, 250, 0.3)';
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -731,13 +882,11 @@
                     
                     ctx.fillText(line.text, line.x, line.y);
                 });
-
-                requestAnimationFrame(animateTraffic);
             }
 
             resizeCanvas();
             initTraffic();
-            animateTraffic();
+            requestAnimationFrame(animateTraffic);
         }
 
         // --- 5. Packet Capture Logic ---
@@ -776,9 +925,15 @@
                 colorClass: "proto-" + proto.toLowerCase()
             };
 
-            packetData.unshift(packet);
-            if (packetData.length > maxBuffer) packetData.pop();
+            packetData.push(packet);
+            if (packetData.length > maxBuffer) packetData.shift();
             renderTable();
+
+            // Auto-scroll to bottom
+            const container = document.querySelector('.table-container');
+            if(container) {
+                container.scrollTop = container.scrollHeight;
+            }
         }
 
         function renderTable() {
