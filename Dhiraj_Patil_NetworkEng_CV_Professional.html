@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhiraj Patil | Network Engineer</title>
+    <!-- Google Fonts: Roboto for UI, Fira Code for CLI -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #0366d6; /* Cisco Blue */
+            --secondary-color: #24292e; /* Server Rack Grey */
+            --bg-color: #f6f8fa;
+            --panel-bg: #ffffff;
+            --text-main: #24292e;
+            --text-secondary: #586069;
+            --status-ok: #2ea44f;
+            --status-warn: #dbab09;
+            --border: #e1e4e8;
+            --font-ui: 'Roboto', sans-serif;
+            --font-code: 'Fira Code', monospace;
+        }
+
+        /* Dark Mode Variables */
+        body.dark-mode {
+            --primary-color: #58a6ff;
+            --secondary-color: #010409; /* Deep dark for top bar background */
+            --bg-color: #0d1117;
+            --panel-bg: #161b22;
+            --text-main: #f0f6fc; /* High contrast text */
+            --text-secondary: #8b949e;
+            --status-ok: #3fb950;
+            --border: #30363d;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-ui);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        /* View Transition Reset */
+        ::view-transition-old(root),
+        ::view-transition-new(root) {
+            animation: none;
+            mix-blend-mode: normal;
+        }
+
+        /* Navigation / Top Bar */
+        .top-bar {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-code);
+            font-size: 0.9rem;
+            border-bottom: 4px solid var(--primary-color);
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: var(--status-ok);
+            border-radius: 50%;
+            margin-right: 8px;
+            box-shadow: 0 0 5px var(--status-ok);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse { 0% { opacity: 0.6; } 50% { opacity: 1; } 100% { opacity: 0.6; } }
+
+        /* Main Container */
+        .dashboard {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 280px 1fr; /* Sidebar | Main Content */
+            gap: 25px;
+        }
+
+        /* Sidebar (Profile & Contact) */
+        .sidebar {
+            background: var(--panel-bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 20px;
+            height: fit-content;
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 15px;
+        }
+
+        .sidebar h1 { font-size: 1.5rem; margin: 10px 0 5px; color: var(--text-main); }
+        .sidebar .role { color: var(--primary-color); font-weight: bold; font-size: 0.9rem; margin-bottom: 15px; display: block;}
+        
+        .contact-list { list-style: none; padding: 0; font-size: 0.9rem; }
+        .contact-list li { margin-bottom: 12px; display: flex; align-items: center; color: var(--text-secondary); }
+        .contact-list i { width: 25px; color: var(--primary-color); text-align: center; margin-right: 10px; }
+        .contact-list a { color: var(--text-secondary); text-decoration: none; }
+        .contact-list a:hover { color: var(--primary-color); text-decoration: underline; }
+
+        /* Main Content */
+        .main-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        /* Panels */
+        .panel {
+            background: var(--panel-bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 25px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .panel-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+        }
+        .panel-title i { margin-right: 10px; color: var(--text-secondary); }
+
+        /* Metrics / Skills */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .metric-card {
+            background: var(--bg-color);
+            border: 1px solid var(--border);
+            padding: 15px;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .metric-label { font-size: 0.85rem; color: var(--text-secondary); font-weight: bold; text-transform: uppercase; }
+        .metric-value { font-size: 1rem; color: var(--text-main); margin-top: 5px; font-family: var(--font-code); }
+        .status-dot {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 8px;
+            height: 8px;
+            background-color: var(--status-ok);
+            border-radius: 50%;
+        }
+
+        /* Terminal Window for Experience */
+        .terminal-window {
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            border-radius: 6px;
+            padding: 15px;
+            font-family: var(--font-code);
+            font-size: 0.9rem;
+            overflow-x: auto;
+            border: 1px solid #333;
+        }
+        .cli-prompt { color: #4ec9b0; }
+        .cli-cmd { color: #dcdcaa; }
+        .cli-output { color: #ce9178; display: block; margin-bottom: 15px; white-space: pre-wrap; }
+
+        /* Projects */
+        .project-item {
+            border-left: 3px solid var(--primary-color);
+            padding-left: 15px;
+            margin-bottom: 20px;
+        }
+        .project-item h3 { margin: 0 0 5px; color: var(--text-main); }
+        .tech-tag {
+            display: inline-block;
+            background: var(--bg-color);
+            color: var(--primary-color);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            border: 1px solid var(--border);
+            margin-right: 5px;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            background: none;
+            border: 1px solid white;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: var(--font-code);
+            font-size: 0.8rem;
+        }
+        .theme-toggle:hover { background: rgba(255,255,255,0.1); }
+
+        @media (max-width: 768px) {
+            .dashboard { grid-template-columns: 1fr; }
+            .sidebar { text-align: left; }
+            .avatar { margin: 0 auto 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div>
+            <span class="status-indicator"></span>
+            <span>SYSTEM STATUS: NORMAL</span>
+            <span id="uptime" style="margin-left: 20px; color: #8b949e;">Uptime: Calculating...</span>
+        </div>
+        <div>
+            <span style="margin-right: 15px;">User: admin</span>
+            <button class="theme-toggle" onclick="toggleTheme(event)">Dark Mode</button>
+        </div>
+    </div>
+
+    <div class="dashboard">
+        
+        <!-- Sidebar Profile -->
+        <aside class="sidebar">
+            <div class="profile-header">
+                <div class="avatar"><i class="fas fa-network-wired"></i></div>
+                <h1>Dhiraj Patil</h1>
+                <span class="role">Network Engineer | CCNA</span>
+            </div>
+            
+            <ul class="contact-list">
+                <li><i class="fas fa-map-marker-alt"></i> Thane/Mumbai, India</li>
+                <li><i class="fas fa-envelope"></i> <a href="mailto:dp5545385@gmail.com">dp5545385@gmail.com</a></li>
+                <li><i class="fas fa-phone-alt"></i> +91 8652010197</li>
+                <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/dhiraj-patil-20a29122b/">LinkedIn Profile</a></li>
+                <li><i class="fab fa-github"></i> <a href="https://github.com/Argon360">GitHub Profile</a></li>
+            </ul>
+
+            <div style="margin-top: 25px;">
+                <h4 style="color:var(--text-secondary); text-transform:uppercase; font-size:0.8rem; margin-bottom:10px;">Certifications</h4>
+                <div style="background: var(--bg-color); padding: 10px; border-radius: 4px; margin-bottom: 10px; border: 1px solid var(--border);">
+                    <div style="font-weight:bold; color:var(--primary-color);">CCNA</div>
+                    <div style="font-size:0.8rem; color:var(--text-secondary);">Cisco Certified Network Associate</div>
+                </div>
+                <div style="background: var(--bg-color); padding: 10px; border-radius: 4px; border: 1px solid var(--border);">
+                    <div style="font-weight:bold; color:var(--primary-color);">CEH</div>
+                    <div style="font-size:0.8rem; color:var(--text-secondary);">Certified Ethical Hacker</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-panel">
+            
+            <!-- Summary Panel -->
+            <section class="panel">
+                <div class="panel-header">
+                    <div class="panel-title"><i class="fas fa-terminal"></i> Executive Summary</div>
+                </div>
+                <p>
+                    CCNA-certified Computer Science graduate with a solid command of <strong>network infrastructure</strong>, <strong>Linux system administration</strong>, and protocol analysis. Proficient in designing secure network architectures, troubleshooting connectivity issues, and managing Linux-based servers. Skilled in <strong>Python</strong> and <strong>Bash</strong> scripting for network automation.
+                </p>
+            </section>
+
+            <!-- Technical Skills Panel -->
+            <section class="panel">
+                <div class="panel-header">
+                    <div class="panel-title"><i class="fas fa-server"></i> Interface Status & Protocols</div>
+                </div>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="status-dot"></div>
+                        <div class="metric-label">Routing</div>
+                        <div class="metric-value">OSPF, BGP, RIP</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="status-dot"></div>
+                        <div class="metric-label">Switching</div>
+                        <div class="metric-value">VLAN, STP, Trunking</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="status-dot"></div>
+                        <div class="metric-label">Security</div>
+                        <div class="metric-value">ACLs, VPN, NAT</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="status-dot"></div>
+                        <div class="metric-label">Automation</div>
+                        <div class="metric-value">Python, Ansible, Bash</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="status-dot" style="background-color:var(--status-warn)"></div>
+                        <div class="metric-label">Monitoring</div>
+                        <div class="metric-value">Wireshark, SNMP</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="status-dot"></div>
+                        <div class="metric-label">OS</div>
+                        <div class="metric-value">Linux (RHEL), Cisco IOS</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects (CLI Style) -->
+            <section class="panel">
+                <div class="panel-header">
+                    <div class="panel-title"><i class="fas fa-code-branch"></i> Network Configurations (Projects)</div>
+                </div>
+                
+                <div class="terminal-window">
+                    <div>
+                        <span class="cli-prompt">Router#</span> <span class="cli-cmd">show running-config project WikiCrawler</span>
+                    </div>
+                    <div class="cli-output">
+! Project: WikiCrawler
+! Language: Python, Graph Theory
+description: "Implemented Bi-directional BFS algorithms for shortest-path routing logic."
+application: "Network Topology Optimization, Path Finding"
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        function toggleTheme(event) {
+            // Helper to actually switch the class and text
+            function updateTheme() {
+                document.body.classList.toggle('dark-mode');
+                const btn = document.querySelector('.theme-toggle');
+                if(document.body.classList.contains('dark-mode')) {
+                    btn.textContent = "Light Mode";
+                } else {
+                    btn.textContent = "Dark Mode";
+                }
+            }
+
+            // Fallback for browsers without View Transitions
+            if (!document.startViewTransition) {
+                updateTheme();
+                return;
+            }
+
+            // Get click coordinates for the wave center
+            const x = event ? event.clientX : window.innerWidth / 2;
+            const y = event ? event.clientY : 0;
+
+            // Calculate distance to the furthest corner
+            const endRadius = Math.hypot(
+                Math.max(x, innerWidth - x),
+                Math.max(y, innerHeight - y)
+            );
+
+            // Start the transition
+            const transition = document.startViewTransition(() => {
+                updateTheme();
+            });
+
+            // Animate the circular clip-path
+            transition.ready.then(() => {
+                const isDark = document.body.classList.contains('dark-mode');
+                const clipPath = [
+                    `circle(0px at ${x}px ${y}px)`,
+                    `circle(${endRadius}px at ${x}px ${y}px)`
+                ];
+
+                document.documentElement.animate(
+                    {
+                        clipPath: clipPath,
+                    },
+                    {
+                        duration: 600,
+                        easing: 'ease-in',
+                        // Animate the NEW view on top of the OLD view
+                        pseudoElement: '::view-transition-new(root)',
+                    }
+                );
+            });
+        }
+
+        // Calculate Age (Uptime)
+        function calculateUptime() {
+            const dob = new Date('2003-10-29');
+            const now = new Date();
+            
+            let years = now.getFullYear() - dob.getFullYear();
+            let months = now.getMonth() - dob.getMonth();
+            let days = now.getDate() - dob.getDate();
+
+            if (days < 0) {
+                months--;
+                // Days in previous month
+                const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+                days += prevMonth.getDate();
+            }
+
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            document.getElementById('uptime').textContent = `Uptime: ${years}y ${months}m ${days}d`;
+        }
+
+        calculateUptime();
+    </script>
+</body>
+</html>

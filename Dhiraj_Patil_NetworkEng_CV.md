@@ -1,69 +1,61 @@
-# Dhiraj Kailash Patil
+# Network Configuration: Dhiraj Patil
 
-**Network Engineer | Linux System Administrator | CCNA Certified**
+```ios
+! version 16.9
+!
+hostname Dhiraj_Patil
+!
+! Network Engineer | Linux Administrator | CCNA Certified
+! Location: Thane/Mumbai, India
+! System Status: NORMAL
+! Uptime: 22y 3m (Since Oct 2003)
+!
+! Email: dp5545385@gmail.com
+! GitHub: github.com/Argon360
+! LinkedIn: linkedin.com/in/dhiraj-patil
+!
+```
 
-**Location:** Thane/Mumbai, India
-**Email:** dp5545385@gmail.com
-**Phone:** +91 8652010197
-**LinkedIn:** [linkedin.com/in/dhiraj-patil-20a29122b](https://www.linkedin.com/in/dhiraj-patil-20a29122b/)
-**GitHub:** [github.com/Argon360](https://github.com/Argon360)
+## interface Professional_Summary
+```bash
+description "CCNA-certified graduate with expertise in network infrastructure, Linux administration, and protocol analysis. Proficient in designing secure architectures and automation."
+status up
+```
 
----
+## ip protocols (Technical Skills)
+| Protocol/Category | Details |
+| :--- | :--- |
+| **Routing & Switching** | `OSPF`, `BGP`, `VLANs`, `STP`, `Trunking`, `Inter-VLAN Routing` |
+| **Network Services** | `DNS`, `DHCP`, `NAT/PAT`, `ACLs`, `VPN (IPSec/SSL)`, `SSH`, `FTP` |
+| **Operating Systems** | `Cisco IOS`, `Linux (RHEL/Debian)`, `Windows Server` |
+| **Automation & Cloud** | `Python (Netmiko/Napalm)`, `Bash Scripting`, `Docker Networking` |
+| **Tools** | `Wireshark`, `Tcpdump`, `Packet Tracer`, `GNS3`, `Nmap` |
 
-## Professional Summary
+## router bgp 65000 (Projects)
 
-CCNA-certified Computer Science graduate with a solid command of network infrastructure, Linux system administration, and protocol analysis. Proficient in designing secure network architectures, troubleshooting connectivity issues, and managing Linux-based servers. Skilled in Python and Bash scripting for network automation and monitoring. Committed to building reliable, high-availability systems and leveraging a deep understanding of TCP/IP, routing, and switching to optimize network performance.
+### neighbor WikiCrawler
+```python
+# Route Optimization Logic
+# Implemented Bi-directional BFS algorithms for shortest-path problems.
+# Demonstrated graph theory application in network routing.
+import networkx as nx
+description = "Graph Algorithms & Routing Logic"
+```
 
----
+## crypto pki certificates (Education & Certs)
+*   **Bachelor of Science (Computer Science)**
+    *   *NES Ratnam College* | Oct 2024
+    *   *Modules:* Data Communications, Computer Networks, Operating Systems.
+*   **[ACTIVE] Cisco Certified Network Associate (CCNA)**
+*   **[ACTIVE] Certified Ethical Hacker (CEH)**
 
-## Technical Skills
+## line console 0 (Contact)
+*   **Email:** `dp5545385@gmail.com`
+*   **Phone:** `+91 8652010197`
+*   **LinkedIn:** [Profile Link](https://www.linkedin.com/in/dhiraj-patil-20a29122b/)
+*   **GitHub:** [Repo Link](https://github.com/Argon360)
 
-*   **Network Protocols:** TCP/IP, UDP, DNS, DHCP, HTTP/HTTPS, FTP, SSH, ARP, ICMP, OSPF, VLANs, STP.
-*   **Network Infrastructure:** Subnetting (IPv4/IPv6), Router & Switch Configuration (Cisco IOS), Access Control Lists (ACLs), NAT/PAT, VPNs.
-*   **System Administration:** Linux (RedHat/Debian/Arch), User Management, File Permissions, Systemd, Process Management, Cron Jobs.
-*   **Tools & Diagnostics:** Wireshark (Packet Analysis), Ping/Traceroute, Netcat, Tcpdump, Docker (Container Networking).
-*   **Programming/Automation:** Python (Network Automation), Bash Scripting, C++.
-
----
-
-## Key Projects
-
-### **WikiCrawler (Graph Algorithms & Routing)**
-*   **Focus:** Algorithms / Data Structures
-*   **Description:** Implemented **Bi-directional Breadth-First Search (BFS)** algorithms to solve shortest-path problems on massive datasets (Wikipedia). Demonstrates strong understanding of routing logic and graph theory essential for network topology optimization.
-*   **Tech Stack:** Python, NetworkX, Graph Theory.
-
-### **RentalHub (Full-Stack Web Architecture)**
-*   **Focus:** Client-Server Architecture / Database
-*   **Description:** Designed and deployed a 3-tier web application. Configured the LAMP stack (Linux, Apache, MySQL, PHP) and managed database connectivity, server-side sessions, and HTTP request handling.
-*   **Tech Stack:** Apache Web Server, MySQL, PHP, Linux.
-
-### **Genzai (Network Scanning & Discovery)**
-*   **Focus:** Network Discovery
-*   **Description:** Developed a tool to scan local networks for active IoT devices, identifying IP addresses, MAC addresses, and open services.
-*   **Tech Stack:** Go (Golang), Network Scanning Libs.
-
----
-
-## Education
-
-**B.Sc. in Computer Science**
-*NES Ratnam College of Arts, Science & Commerce, Mumbai*
-*Graduated: October 2024*
-*   **GPA:** 3.X/4.0
-*   **Relevant Coursework:** Data Communications, Computer Networks, Operating Systems, Database Management Systems.
-
----
-
-## Certifications
-
-*   **Cisco Certified Network Associate (CCNA)** – *Connecting Cyber Networks*
-*   **Certified Ethical Hacker (CEH)** – *Connecting Cyber Networks*
-
----
-
-## Soft Skills
-
-*   **Troubleshooting:** Systematic approach to diagnosing and resolving Layer 1-7 connectivity issues.
-*   **Collaboration:** Working effectively with cross-functional teams to ensure network uptime and security.
-*   **Adaptability:** Quickly learning new network operating systems and hardware configurations.
+```ios
+end
+write memory
+```

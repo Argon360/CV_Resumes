@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhiraj Patil | Cybersecurity Portfolio</title>
+    <!-- Google Fonts: Share Tech Mono for that Hacker feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #00ff41; /* Hacker Green */
+            --accent-color: #008F11; /* Darker Green */
+            --highlight-color: #ffff00; /* Warning Yellow */
+            --glass-bg: rgba(10, 10, 10, 0.85);
+            --border-color: #00ff41;
+            --font-main: 'Share Tech Mono', monospace;
+            --card-bg: rgba(20, 30, 20, 0.6);
+            --skill-bar-bg: #1a1a1a;
+            --skill-bar-fill: #00ff41;
+        }
+
+        /* Corporate Mode Variables (Light Mode) */
+        body.light-mode {
+            --bg-color: #f4f4f4;
+            --text-color: #333333;
+            --accent-color: #2c3e50;
+            --highlight-color: #e74c3c;
+            --glass-bg: rgba(255, 255, 255, 0.95);
+            --border-color: #ccc;
+            --card-bg: #ffffff;
+            --skill-bar-bg: #e0e0e0;
+            --skill-bar-fill: #2c3e50;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* View Transition Reset */
+        ::view-transition-old(root),
+        ::view-transition-new(root) {
+            animation: none;
+            mix-blend-mode: normal;
+        }
+
+
+        /* Background Canvas for Matrix Rain */
+        #matrix-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.15; /* Subtle background */
+        }
+        
+        body.light-mode #matrix-canvas {
+            display: none;
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background: var(--glass-bg);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 0 15px var(--accent-color);
+            position: relative;
+            backdrop-filter: blur(5px);
+        }
+
+        body.light-mode .container {
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border: none;
+            border-top: 5px solid var(--highlight-color);
+        }
+
+        /* Header */
+        header {
+            border-bottom: 2px dashed var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .terminal-prompt {
+            color: var(--highlight-color);
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 0px var(--accent-color);
+            position: relative;
+        }
+
+        /* Glitch Effect */
+        .glitch {
+            position: relative;
+        }
+        .glitch::before, .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-color);
+        }
+        .glitch::before {
+            left: 2px;
+            text-shadow: -1px 0 red;
+            clip: rect(24px, 550px, 90px, 0);
+            animation: glitch-anim 3s infinite linear alternate-reverse;
+        }
+        .glitch::after {
+            left: -2px;
+            text-shadow: -1px 0 blue;
+            clip: rect(85px, 550px, 140px, 0);
+            animation: glitch-anim 2s infinite linear alternate-reverse;
+        }
+        body.light-mode .glitch::before, body.light-mode .glitch::after { display: none; }
+
+        @keyframes glitch-anim {
+            0% { clip: rect(11px, 9999px, 83px, 0); }
+            20% { clip: rect(76px, 9999px, 19px, 0); }
+            40% { clip: rect(45px, 9999px, 56px, 0); }
+            60% { clip: rect(10px, 9999px, 3px, 0); }
+            80% { clip: rect(92px, 9999px, 29px, 0); }
+            100% { clip: rect(3px, 9999px, 96px, 0); }
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: var(--text-color);
+            opacity: 0.9;
+        }
+        
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 1.2em;
+            background-color: var(--text-color);
+            animation: blink 1s infinite;
+            vertical-align: bottom;
+        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        /* Contact Bar */
+        .contact-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+            font-size: 0.9em;
+        }
+        .contact-bar a {
+            color: var(--text-color);
+            text-decoration: none;
+            border: 1px solid var(--border-color);
+            padding: 5px 10px;
+            transition: all 0.3s;
+        }
+        .contact-bar a:hover {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            box-shadow: 0 0 10px var(--text-color);
+        }
+
+        /* Sections */
+        h2 {
+            border-left: 5px solid var(--text-color);
+            padding-left: 15px;
+            margin-top: 40px;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, rgba(0,255,65,0.1) 0%, rgba(0,0,0,0) 100%);
+        }
+        body.light-mode h2 { background: none; border-left-color: var(--highlight-color); }
+
+        /* Skill Bars */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .skill-item {
+            margin-bottom: 15px;
+        }
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .skill-bar-bg {
+            width: 100%;
+            height: 12px;
+            background-color: var(--skill-bar-bg);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+            border-radius: 2px;
+        }
+        .skill-bar-fill {
+            height: 100%;
+            background-color: var(--skill-bar-fill);
+            width: 0%;
+            transition: width 1.5s cubic-bezier(0.1, 0.7, 1.0, 0.1);
+            position: relative;
+        }
+        /* Striped animation for bars */
+        .skill-bar-fill::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background-image: linear-gradient(
+                -45deg, 
+                rgba(0, 0, 0, 0.2) 25%, 
+                transparent 25%, 
+                transparent 50%, 
+                rgba(0, 0, 0, 0.2) 50%, 
+                rgba(0, 0, 0, 0.2) 75%, 
+                transparent 75%, 
+                transparent
+            );
+            z-index: 1;
+            background-size: 20px 20px;
+            animation: move 2s linear infinite;
+        }
+        @keyframes move { 0% { background-position: 0 0; } 100% { background-position: 20px 20px; } }
+
+        /* Projects (Cards) */
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        .project-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.2);
+        }
+        body.light-mode .project-card:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        
+        .tech-stack {
+            font-size: 0.8em;
+            color: var(--highlight-color);
+            margin-bottom: 10px;
+            display: block;
+        }
+        body.light-mode .tech-stack { color: #e74c3c; font-weight: bold; }
+
+        /* Toggle Button */
+        .toggle-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+        .theme-switch {
+            background: transparent;
+            border: 1px solid var(--text-color);
+            color: var(--text-color);
+            padding: 8px 15px;
+            cursor: pointer;
+            font-family: var(--font-main);
+            text-transform: uppercase;
+            font-size: 0.8em;
+        }
+        .theme-switch:hover {
+            background: var(--text-color);
+            color: var(--bg-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            h1 { font-size: 2em; }
+            .container { padding: 15px; width: 95%; margin: 20px auto; }
+            .contact-bar { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Matrix Background -->
+    <canvas id="matrix-canvas"></canvas>
+
+    <div class="container">
+        <!-- Theme Toggle -->
+        <div class="toggle-container">
+            <button class="theme-switch" onclick="toggleTheme(event)">[ Toggle_Stealth_Mode ]</button>
+        </div>
+
+        <header>
+            <span class="terminal-prompt">root@kali:~/profiles/dhiraj_patil$ cat cv.txt</span>
+            <h1 class="glitch" data-text="Dhiraj Kailash Patil">Dhiraj Kailash Patil</h1>
+            <div class="subtitle">
+                <span id="typewriter"></span><span class="cursor"></span>
+            </div>
+            
+            <div class="contact-bar">
+                <a href="mailto:dp5545385@gmail.com"><i class="fas fa-envelope"></i> dp5545385@gmail.com</a>
+                <a href="https://www.linkedin.com/in/dhiraj-patil-20a29122b/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/Argon360" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="#"><i class="fas fa-map-marker-alt"></i> Thane/Mumbai, India</a>
+                <a href="tel:+918652010197"><i class="fas fa-phone"></i> +91 8652010197</a>
+            </div>
+        </header>
+
+        <section class="section">
+            <h2><i class="fas fa-user-secret"></i> Mission Briefing</h2>
+            <p>
+                Certified Ethical Hacker (CEH) and security researcher with a strong focus on <strong>offensive security</strong>, <strong>vulnerability assessment</strong>, and <strong>exploit development</strong>. 
+                Experienced in identifying security flaws in IoT devices and web applications. Creator of custom security tools like 
+                <span style="color:var(--highlight-color)">BlueDucky</span>. 
+                Adept at using industry-standard tools to conduct rigorous penetration tests.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-microchip"></i> Technical Arsenal</h2>
+            <div class="skills-container" id="skills-container">
+                <!-- Skills will be injected here by JS -->
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-code-branch"></i> Deployed Exploits & Tools</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <span class="tech-stack">[ Python | BlueZ | DuckyScript ]</span>
+                    <h3>BlueDucky (IoT Exploit Framework)</h3>
+                    <ul>
+                        <li>Implemented <strong>CVE-2023-45866</strong> for unauthenticated peering.</li>
+                        <li>Enabled Keystroke Injection on Android/Linux devices.</li>
+                        <li>Critical flaw demonstration in Bluetooth implementation.</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <span class="tech-stack">[ Python | NetworkX | AI ]</span>
+                    <h3>WikiCrawler (OSINT & Automation)</h3>
+                    <ul>
+                        <li>Reconnaissance tool using Bi-directional BFS for entity mapping.</li>
+                        <li>Integrated with <strong>Google Gemini</strong> for context analysis.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-graduation-cap"></i> Credentials</h2>
+            <div class="project-card" style="border-left: 3px solid var(--highlight-color);">
+                <h3>B.Sc. in Computer Science</h3>
+                <p><strong>NES Ratnam College of Arts, Science & Commerce</strong> | Graduated: Oct 2024</p>
+                <p><em>Relevant Coursework:</em> Network Security, Cryptography, Cyber Forensics, Ethical Hacking.</p>
+            </div>
+            <div style="margin-top: 15px;">
+                <p><i class="fas fa-certificate"></i> <strong>Certified Ethical Hacker (CEH)</strong> – Connecting Cyber Networks</p>
+                <p><i class="fas fa-certificate"></i> <strong>Cisco Certified Network Associate (CCNA)</strong> – Connecting Cyber Networks</p>
+            </div>
+        </section>
+        
+        <footer style="margin-top: 50px; text-align: center; font-size: 0.8em; opacity: 0.7;">
+            <p>System Status: ONLINE | Integrity: 100% | Generated: <span id="date"></span></p>
+        </footer>
+    </div>
+
+    <script>
+        // --- Configuration ---
+        const roles = ["Cybersecurity Analyst", "Penetration Tester", "CEH Certified", "Exploit Developer"];
+        const skills = [
+            { name: "Python / Scripting", level: 90 },
+            { name: "Burp Suite Pro", level: 85 },
+            { name: "Metasploit / Nmap", level: 88 },
+            { name: "Linux / Bash", level: 92 },
+            { name: "Web App Security", level: 80 },
+            { name: "Network Forensics", level: 75 },
+            { name: "Cryptography", level: 70 },
+            { name: "Docker Security", level: 65 }
+        ];
+
+        // --- Typing Effect ---
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typeTarget = document.getElementById("typewriter");
+
+        function typeWriter() {
+            const currentRole = roles[roleIndex];
+            
+            if (isDeleting) {
+                typeTarget.textContent = currentRole.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typeTarget.textContent = currentRole.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentRole.length) {
+                typeSpeed = 2000; // Pause at end
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(typeWriter, typeSpeed);
+        }
+
+        // --- Skill Bars ---
+        function renderSkills() {
+            const container = document.getElementById("skills-container");
+            skills.forEach(skill => {
+                const skillHTML = `
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>${skill.name}</span>
+                            <span>${skill.level}%</span>
+                        </div>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar-fill" style="width: 0%" data-target="${skill.level}"></div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += skillHTML;
+            });
+        }
+
+        function animateSkills() {
+            const bars = document.querySelectorAll('.skill-bar-fill');
+            bars.forEach(bar => {
+                const target = bar.getAttribute('data-target');
+                bar.style.width = target + '%';
+            });
+        }
+
+        // --- Matrix Background ---
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+        const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const nums = '0123456789';
+        const alphabet = katakana + latin + nums;
+
+        const fontSize = 16;
+        const columns = canvas.width/fontSize;
+
+        const rainDrops = [];
+        for( let x = 0; x < columns; x++ ) {
+            rainDrops[x] = 1;
+        }
+
+        function drawMatrix() {
+            // Check if light mode is on, if so, clear canvas and return
+            if(document.body.classList.contains('light-mode')) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                return;
+            }
+
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#0F0';
+            ctx.font = fontSize + 'px monospace';
+
+            for(let i = 0; i < rainDrops.length; i++) {
+                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+                ctx.fillText(text, i*fontSize, rainDrops[i]*fontSize);
+
+                if(rainDrops[i]*fontSize > canvas.height && Math.random() > 0.975){
+                    rainDrops[i] = 0;
+                }
+                rainDrops[i]++;
+            }
+        }
+
+        // --- Initialization ---
+        window.onload = function() {
+            typeWriter();
+            renderSkills();
+            document.getElementById('date').textContent = new Date().toLocaleDateString();
+            
+            // Delay skill animation slightly for effect
+            setTimeout(animateSkills, 500);
+
+            // Matrix Loop
+            setInterval(drawMatrix, 30);
+        };
+
+        // Resize handling
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Theme Toggle
+        function toggleTheme(event) {
+            function updateTheme() {
+                document.body.classList.toggle('light-mode');
+                const btn = document.querySelector('.theme-switch');
+                if(document.body.classList.contains('light-mode')) {
+                    btn.textContent = "[ ACTIVATE_HACKER_MODE ]";
+                } else {
+                    btn.textContent = "[ TOGGLE_STEALTH_MODE ]";
+                }
+            }
+
+            if (!document.startViewTransition) {
+                updateTheme();
+                return;
+            }
+
+            const x = event ? event.clientX : window.innerWidth / 2;
+            const y = event ? event.clientY : 0;
+
+            const endRadius = Math.hypot(
+                Math.max(x, innerWidth - x),
+                Math.max(y, innerHeight - y)
+            );
+
+            const transition = document.startViewTransition(() => {
+                updateTheme();
+            });
+
+            transition.ready.then(() => {
+                const clipPath = [
+                    `circle(0px at ${x}px ${y}px)`,
+                    `circle(${endRadius}px at ${x}px ${y}px)`
+                ];
+
+                document.documentElement.animate(
+                    {
+                        clipPath: clipPath,
+                    },
+                    {
+                        duration: 600,
+                        easing: 'ease-in',
+                        pseudoElement: '::view-transition-new(root)',
+                    }
+                );
+            });
+        }
+    </script>
+</body>
+</html>
