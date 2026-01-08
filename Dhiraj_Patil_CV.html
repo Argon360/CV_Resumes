@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Dhiraj Kailash Patil</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            background-color: white;
+            padding: 50px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            margin: 0;
+            color: #2c3e50;
+            font-size: 2.5em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-top: 5px;
+            font-weight: 500;
+        }
+        .contact-info {
+            margin-top: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 20px;
+            font-size: 0.95em;
+        }
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        .section {
+            margin-top: 30px;
+        }
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-size: 1.1em;
+            letter-spacing: 0.5px;
+        }
+        .job-title, .project-title {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #2c3e50;
+        }
+        .company, .tech-stack {
+            font-style: italic;
+            color: #7f8c8d;
+        }
+        .dates {
+            float: right;
+            color: #95a5a6;
+            font-size: 0.9em;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+                margin: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 30px;
+            }
+            a {
+                color: black;
+                text-decoration: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Dhiraj Kailash Patil</h1>
+            <div class="subtitle">Cybersecurity Analyst | Certified Ethical Hacker (CEH) | Python Developer</div>
+            <div class="contact-info">
+                <span>📍 Thane/Mumbai, India</span>
+                <a href="mailto:dp5545385@gmail.com">✉️ dp5545385@gmail.com</a>
+                <span>📞 +91 8652010197</span><br>
+                <a href="https://www.linkedin.com/in/dhiraj-patil-20a29122b/">🔗 LinkedIn</a>
+                <a href="https://github.com/Argon360">🐙 GitHub</a>
+            </div>
+        </header>
+
+        <div class="section">
+            <h2 class="section-title">Professional Summary</h2>
+            <p>
+                Security-focused Computer Science graduate (B.Sc.) and Certified Ethical Hacker (CEH) with a strong emphasis on <strong>secure infrastructure</strong>, <strong>defensive engineering</strong>, and <strong>automation</strong>. Passionate about building auditable, minimal-attack-surface tools and conducting rigorous vulnerability assessments. Skilled in Linux internals, Python, and Network Security, with a philosophy of preferring simple, verifiable solutions over complex abstractions. Seeking a challenging role as a Cybersecurity Analyst to leverage skills in secure coding, vulnerability analysis, and infrastructure protection.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div>
+                    <strong>Security & Networking:</strong><br>
+                    Penetration Testing, Vuln Assessment, OSINT, Network Analysis, IoT Security, OWASP Top 10
+                </div>
+                <div>
+                    <strong>Programming & Tools:</strong><br>
+                    Python, SQL, PHP, Go (Basic), C++, Bash, Git, Docker, Nmap, Burp Suite, Wireshark, Metasploit
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Projects</h2>
+            
+            <div class="project">
+                <div class="dates">Python, DuckyScript, Linux</div>
+                <div class="project-title">BlueDucky (IoT Security Tool)</div>
+                <ul>
+                    <li>Implemented CVE-2023-45866 vulnerability POC to demonstrate unauthenticated peering on Bluetooth devices.</li>
+                    <li>Automated the scanning and payload injection process using Python and HID scripts.</li>
+                </ul>
+            </div>
+
+            <div class="project">
+                <div class="dates">Python, Gemini API, NetworkX</div>
+                <div class="project-title">WikiCrawler (AI & Automation)</div>
+                <ul>
+                    <li>Developed a CLI tool to find shortest paths between Wikipedia articles using Bi-directional BFS.</li>
+                    <li>Integrated Google's Gemini AI to provide context-aware explanations for the generated paths.</li>
+                </ul>
+            </div>
+
+            <div class="project">
+                <div class="dates">PHP, MySQL, HTML/CSS</div>
+                <div class="project-title">RentalHub (Web Application)</div>
+                <ul>
+                    <li>Built a full-stack rental property management system for landlords and tenants.</li>
+                    <li>Implemented secure user authentication, property listing CRUD operations, and an admin dashboard.</li>
+                </ul>
+            </div>
+
+             <div class="project">
+                <div class="dates">Go, Streamlit</div>
+                <div class="project-title">Genzai (IoT Security Protocol)</div>
+                <ul>
+                    <li>Developed a security assessment tool and protocol designed for IoT environments, focusing on device detection and vulnerability scanning.</li>
+                    <li>Implemented core scanning logic and UI integration.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="dates">Graduated: Oct 2024</div>
+            <div class="job-title">B.Sc. in Computer Science</div>
+            <div class="company">NES Ratnam College of Arts, Science & Commerce, Mumbai</div>
+            <div style="margin-top: 5px;"><strong>GPA:</strong> 3.X/4.0</div>
+            <div><strong>Coursework:</strong> Network Security, Data Structures, Database Mgmt, OS, Software Engineering.</div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Certifications</h2>
+            <ul>
+                <li><strong>Certified Ethical Hacker (CEH)</strong></li>
+                <li><strong>Cisco Certified Network Associate (CCNA)</strong></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Interests</h2>
+            <p>IoT Hacking, Building Automation Tools, Chess, Continuous Learning.</p>
+        </div>
+    </div>
+</body>
+</html>
