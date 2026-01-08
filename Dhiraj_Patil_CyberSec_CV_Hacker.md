@@ -19,10 +19,11 @@ Certified Ethical Hacker (CEH) and security researcher with a strong focus on **
 
 ## // TECHNICAL ARSENAL
 
-### [ LANGUAGES & SCRIPTING ]
+### [ COMMANDS: `ls -la skills/` ]
 ```bash
 > Python (Exploits)    [||||||||||||||||||||] 90%
 > Bash / Shell         [||||||||||||||||||||] 92%
+> Linux (Kali/Parrot)  [||||||||||||||||||||] 95%
 ```
 
 ### [ TOOLS & FRAMEWORKS ]
@@ -60,4 +61,6 @@ Certified Ethical Hacker (CEH) and security researcher with a strong focus on **
 *   `[+]` **Cisco Certified Network Associate (CCNA)** – Connecting Cyber Networks
 
 ---
+`root@kali:~$ help`
+`Available commands: projects, education, certs, contact, whoami`
 `root@kali:~$ _`

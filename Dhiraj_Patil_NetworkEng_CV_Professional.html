@@ -54,6 +54,81 @@
             mix-blend-mode: normal;
         }
 
+        /* Network Background */
+        #network-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+        }
+        body.dark-mode #network-canvas { opacity: 0.2; }
+
+        /* Traceroute Style */
+        .traceroute-block {
+            font-family: var(--font-code);
+            background: #1e1e1e;
+            color: #ccc;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid #333;
+            margin-bottom: 20px;
+        }
+        .hop {
+            display: grid;
+            grid-template-columns: 30px 100px 1fr;
+            margin-bottom: 8px;
+            border-bottom: 1px dashed #333;
+            padding-bottom: 5px;
+        }
+        .hop:last-child { border-bottom: none; }
+        .hop-num { color: #58a6ff; }
+        .hop-time { color: #8b949e; }
+        .hop-name { color: #dcdcaa; font-weight: bold; }
+        .hop-detail { grid-column: 3; color: #8b949e; font-size: 0.85em; margin-top: 2px; }
+
+        /* Switch Port Style Skills */
+        .switch-faceplate {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            background: #333;
+            padding: 15px;
+            border-radius: 4px;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+        }
+        .switch-port {
+            background: #1e1e1e;
+            border: 1px solid #555;
+            padding: 10px;
+            width: 80px;
+            text-align: center;
+            position: relative;
+            border-radius: 2px;
+        }
+        .port-led {
+            width: 8px;
+            height: 4px;
+            background: #2ea44f;
+            margin: 0 auto 5px;
+            box-shadow: 0 0 5px #2ea44f;
+            animation: blink-random 3s infinite;
+        }
+        .port-label {
+            color: #fff;
+            font-size: 0.7rem;
+            font-family: var(--font-code);
+            text-transform: uppercase;
+        }
+        @keyframes blink-random {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+            25% { opacity: 0.8; }
+            75% { opacity: 0.5; }
+        }
+
         /* Navigation / Top Bar */
         .top-bar {
             background-color: var(--secondary-color);
@@ -234,14 +309,124 @@
         }
         .theme-toggle:hover { background: rgba(255,255,255,0.1); }
 
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 10px;
+            border: 2px solid var(--bg-color);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #024ea2;
+        }
+        body.dark-mode ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+        }
+        body.dark-mode ::-webkit-scrollbar-thumb:hover {
+            background: #79b8ff;
+        }
+
+        /* Syslog Footer */
+        .syslog-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #000;
+            color: #0f0;
+            font-family: var(--font-code);
+            font-size: 0.8rem;
+            padding: 5px 10px;
+            border-top: 1px solid #333;
+            z-index: 100;
+            white-space: nowrap;
+            overflow: hidden;
+            opacity: 0.9;
+        }
+        .syslog-line {
+            display: inline-block;
+            margin-right: 50px;
+            animation: scroll-left 20s linear infinite;
+        }
+        @keyframes scroll-left {
+            0% { transform: translateX(100vw); }
+            100% { transform: translateX(-100%); }
+        }
+
         @media (max-width: 768px) {
             .dashboard { grid-template-columns: 1fr; }
             .sidebar { text-align: left; }
             .avatar { margin: 0 auto 15px; }
+            .syslog-footer { display: none; } /* Hide on mobile for space */
         }
+        
+        /* Packet Capture Styles */
+        .packet-panel {
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+        }
+        .filter-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .filter-bar input {
+            background: var(--bg-color);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-family: var(--font-code);
+            width: 100%;
+        }
+        .table-container {
+            flex-grow: 1;
+            overflow-y: auto;
+            border: 1px solid var(--border);
+            max-height: 300px;
+            background: var(--bg-color);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: var(--font-code);
+            font-size: 0.8rem;
+        }
+        th, td {
+            text-align: left;
+            padding: 4px 8px;
+            border-bottom: 1px solid var(--border);
+        }
+        th {
+            background: var(--secondary-color);
+            color: #fff;
+            position: sticky;
+            top: 0;
+            cursor: pointer;
+        }
+        tr:hover {
+            background-color: rgba(3, 102, 214, 0.1);
+        }
+        body.dark-mode tr:hover {
+            background-color: rgba(88, 166, 255, 0.1);
+        }
+        /* Protocol Colors */
+        .proto-tcp { color: #4a90e2; }
+        .proto-udp { color: #eebb4d; }
+        .proto-icmp { color: #d066e2; }
+        .proto-ospf { color: #7ed321; }
+        .proto-error { color: #e74c3c; font-weight:bold; }
     </style>
 </head>
 <body>
+    <canvas id="network-canvas"></canvas>
 
     <div class="top-bar">
         <div>
@@ -299,148 +484,365 @@
                 </p>
             </section>
 
-            <!-- Technical Skills Panel -->
+            <!-- Technical Skills Panel (Switch Style) -->
             <section class="panel">
                 <div class="panel-header">
-                    <div class="panel-title"><i class="fas fa-server"></i> Interface Status & Protocols</div>
+                    <div class="panel-title"><i class="fas fa-server"></i> Interface Status (Skills)</div>
                 </div>
-                <div class="metrics-grid">
-                    <div class="metric-card">
-                        <div class="status-dot"></div>
-                        <div class="metric-label">Routing</div>
-                        <div class="metric-value">OSPF, BGP, RIP</div>
+                <div class="switch-faceplate">
+                    <div class="switch-port"><div class="port-led"></div><div class="port-label">OSPF</div></div>
+                    <div class="switch-port"><div class="port-led"></div><div class="port-label">BGP</div></div>
+                    <div class="switch-port"><div class="port-led"></div><div class="port-label">VLAN</div></div>
+                    <div class="switch-port"><div class="port-led"></div><div class="port-label">STP</div></div>
+                    <div class="switch-port"><div class="port-led"></div><div class="port-label">VPN</div></div>
+                    <div class="switch-port"><div class="port-led" style="background:#dbab09; box-shadow:0 0 5px #dbab09;"></div><div class="port-label">Python</div></div>
+                    <div class="switch-port"><div class="port-led"></div><div class="port-label">Linux</div></div>
+                    <div class="switch-port"><div class="port-led"></div><div class="port-label">Cisco</div></div>
+                    <div class="switch-port"><div class="port-led"></div><div class="port-label">Wireshark</div></div>
+                    <div class="switch-port"><div class="port-led"></div><div class="port-label">Docker</div></div>
+                    <div class="switch-port"><div class="port-led"></div><div class="port-label">Bash</div></div>
+                    <div class="switch-port"><div class="port-led"></div><div class="port-label">TCP/IP</div></div>
+                </div>
+            </section>
+
+            <!-- Education (Traceroute Style) -->
+             <section class="panel">
+                <div class="panel-header">
+                    <div class="panel-title"><i class="fas fa-route"></i> Career Route (traceroute)</div>
+                </div>
+                <div class="traceroute-block">
+                    <div style="margin-bottom:10px; color:#aaa;">user@admin:~$ traceroute career-path</div>
+                    
+                    <div class="hop">
+                        <div class="hop-num">1</div>
+                        <div class="hop-time">Oct 2024</div>
+                        <div class="hop-name">B.Sc. Comp Sci</div>
+                        <div class="hop-detail">NES Ratnam College | Network Sec, Cryptography</div>
                     </div>
-                    <div class="metric-card">
-                        <div class="status-dot"></div>
-                        <div class="metric-label">Switching</div>
-                        <div class="metric-value">VLAN, STP, Trunking</div>
+
+                    <div class="hop">
+                        <div class="hop-num">2</div>
+                        <div class="hop-time">Active</div>
+                        <div class="hop-name">CCNA</div>
+                        <div class="hop-detail">Cisco Certified Network Associate</div>
                     </div>
-                    <div class="metric-card">
-                        <div class="status-dot"></div>
-                        <div class="metric-label">Security</div>
-                        <div class="metric-value">ACLs, VPN, NAT</div>
+
+                    <div class="hop">
+                        <div class="hop-num">3</div>
+                        <div class="hop-time">Active</div>
+                        <div class="hop-name">CEH</div>
+                        <div class="hop-detail">Certified Ethical Hacker</div>
                     </div>
-                    <div class="metric-card">
-                        <div class="status-dot"></div>
-                        <div class="metric-label">Automation</div>
-                        <div class="metric-value">Python, Ansible, Bash</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="status-dot" style="background-color:var(--status-warn)"></div>
-                        <div class="metric-label">Monitoring</div>
-                        <div class="metric-value">Wireshark, SNMP</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="status-dot"></div>
-                        <div class="metric-label">OS</div>
-                        <div class="metric-value">Linux (RHEL), Cisco IOS</div>
+                     <div class="hop">
+                        <div class="hop-num">4</div>
+                        <div class="hop-time">* * *</div>
+                        <div class="hop-name">Next Role</div>
+                        <div class="hop-detail">Request timed out (Waiting for Opportunity)</div>
                     </div>
                 </div>
             </section>
 
-            <!-- Projects (CLI Style) -->
-            <section class="panel">
+            <!-- Live Packet Capture Panel -->
+            <section class="panel packet-panel">
                 <div class="panel-header">
-                    <div class="panel-title"><i class="fas fa-code-branch"></i> Network Configurations (Projects)</div>
+                    <div class="panel-title"><i class="fas fa-microchip"></i> Live Packet Capture (Wireshark Mode)</div>
+                    <div style="display:flex; gap:10px;">
+                        <button class="theme-toggle" onclick="toggleCapture()" id="capture-btn">Stop Capture</button>
+                        <button class="theme-toggle" onclick="exportCSV()">Export CSV</button>
+                    </div>
                 </div>
                 
-                <div class="terminal-window">
-                    <div>
-                        <span class="cli-prompt">Router#</span> <span class="cli-cmd">show running-config project WikiCrawler</span>
-                    </div>
-                    <div class="cli-output">
-! Project: WikiCrawler
-! Language: Python, Graph Theory
-description: "Implemented Bi-directional BFS algorithms for shortest-path routing logic."
-application: "Network Topology Optimization, Path Finding"
-                    </div>
+                <!-- Filters -->
+                <div class="filter-bar">
+                    <input type="text" id="filter-proto" placeholder="Filter Protocol (e.g. TCP)" onkeyup="applyFilters()">
+                    <input type="text" id="filter-ip" placeholder="Filter IP (e.g. 192.168)" onkeyup="applyFilters()">
+                </div>
+
+                <!-- Table -->
+                <div class="table-container">
+                    <table id="packet-table">
+                        <thead>
+                            <tr>
+                                <th onclick="sortTable('no')">No.</th>
+                                <th onclick="sortTable('time')">Time</th>
+                                <th onclick="sortTable('src')">Source</th>
+                                <th onclick="sortTable('dst')">Destination</th>
+                                <th onclick="sortTable('proto')">Protocol</th>
+                                <th onclick="sortTable('len')">Length</th>
+                                <th>Info</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Packets inject here -->
+                        </tbody>
+                    </table>
                 </div>
             </section>
-
         </main>
     </div>
 
+    <div class="syslog-footer">
+        <div class="syslog-line" id="syslog-feed">Loading Logs...</div>
+    </div>
+
     <script>
+        // --- 1. Theme Toggle & Wave Effect ---
         function toggleTheme(event) {
-            // Helper to actually switch the class and text
             function updateTheme() {
                 document.body.classList.toggle('dark-mode');
                 const btn = document.querySelector('.theme-toggle');
-                if(document.body.classList.contains('dark-mode')) {
+                if (document.body.classList.contains('dark-mode')) {
                     btn.textContent = "Light Mode";
                 } else {
                     btn.textContent = "Dark Mode";
                 }
             }
 
-            // Fallback for browsers without View Transitions
             if (!document.startViewTransition) {
                 updateTheme();
                 return;
             }
 
-            // Get click coordinates for the wave center
             const x = event ? event.clientX : window.innerWidth / 2;
             const y = event ? event.clientY : 0;
+            const endRadius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
 
-            // Calculate distance to the furthest corner
-            const endRadius = Math.hypot(
-                Math.max(x, innerWidth - x),
-                Math.max(y, innerHeight - y)
-            );
-
-            // Start the transition
             const transition = document.startViewTransition(() => {
                 updateTheme();
             });
 
-            // Animate the circular clip-path
             transition.ready.then(() => {
-                const isDark = document.body.classList.contains('dark-mode');
                 const clipPath = [
                     `circle(0px at ${x}px ${y}px)`,
                     `circle(${endRadius}px at ${x}px ${y}px)`
                 ];
-
                 document.documentElement.animate(
-                    {
-                        clipPath: clipPath,
-                    },
+                    { clipPath: clipPath },
                     {
                         duration: 600,
                         easing: 'ease-in',
-                        // Animate the NEW view on top of the OLD view
                         pseudoElement: '::view-transition-new(root)',
                     }
                 );
             });
         }
 
-        // Calculate Age (Uptime)
+        // --- 2. Uptime Calculator ---
         function calculateUptime() {
             const dob = new Date('2003-10-29');
             const now = new Date();
-            
             let years = now.getFullYear() - dob.getFullYear();
             let months = now.getMonth() - dob.getMonth();
             let days = now.getDate() - dob.getDate();
 
             if (days < 0) {
                 months--;
-                // Days in previous month
                 const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
                 days += prevMonth.getDate();
             }
-
             if (months < 0) {
                 years--;
                 months += 12;
             }
+            const uptimeEl = document.getElementById('uptime');
+            if(uptimeEl) uptimeEl.textContent = `Uptime: ${years}y ${months}m ${days}d`;
+        }
+        calculateUptime();
 
-            document.getElementById('uptime').textContent = `Uptime: ${years}y ${months}m ${days}d`;
+        // --- 3. Syslog Ticker ---
+        const logs = [
+            "%LINK-3-UPDOWN: Interface GigabitEthernet0/1, changed state to up",
+            "%OSPF-5-ADJCHG: Process 1, Nbr 192.168.1.5 on Vlan10 from LOADING to FULL, Loading Done",
+            "%SEC-6-IPACCESSLOGP: list INBOUND denied tcp 10.0.0.55(443) -> 192.168.1.10(22), 1 packet",
+            "%SYS-5-CONFIG_I: Configured from console by vty0 (10.0.0.2)",
+            "%CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on GigabitEthernet0/1 (10), with Switch GigabitEthernet0/2 (20)",
+            "%CRYPTO-4-RECVD_PKT_INV_SPI: decaps: rec'd IPSEC packet has invalid spi for destaddr=10.0.0.1"
+        ];
+        const logFeed = document.getElementById('syslog-feed');
+        if(logFeed) {
+            const logString = logs.map(l => `<span style="margin-right: 50px;">${new Date().toLocaleTimeString()} ${l}</span>`).join('');
+            logFeed.innerHTML = logString + logString;
         }
 
-        calculateUptime();
+        // --- 4. Live Traffic Background (Tcpdump Style) ---
+        const canvas = document.getElementById('network-canvas');
+        if(canvas) {
+            const ctx = canvas.getContext('2d');
+            let trafficLines = [];
+            const fontSize = 14;
+            
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resizeCanvas);
+
+            // Helper to generate realistic looking packet line
+            function createPacketLine(y) {
+                const protos = ['TCP', 'UDP', 'ICMP', 'OSPF', 'SSH', 'HTTPS'];
+                const proto = protos[Math.floor(Math.random() * protos.length)];
+                const src = `10.0.${Math.floor(Math.random()*10)}.${Math.floor(Math.random()*255)}`;
+                const dst = `192.168.${Math.floor(Math.random()*10)}.${Math.floor(Math.random()*255)}`;
+                const time = new Date().toLocaleTimeString().split(' ')[0] + '.' + Math.floor(Math.random()*999);
+                const len = Math.floor(Math.random() * 1500);
+                
+                let info = "";
+                if(proto === 'TCP') info = `Seq=${Math.floor(Math.random()*1000)} Ack=${Math.floor(Math.random()*1000)} Win=65535`;
+                else if(proto === 'OSPF') info = "Hello Packet";
+                else info = `${len} bytes`;
+
+                return {
+                    text: `${time} IP ${src} > ${dst}: ${proto} ${info}`,
+                    x: Math.random() * 50, // Slight random offset
+                    y: y,
+                    speed: 0.5 + Math.random() * 0.5,
+                    opacity: 0.1 + Math.random() * 0.4 // Varying faintness
+                };
+            }
+
+            function initTraffic() {
+                trafficLines = [];
+                const rows = Math.ceil(canvas.height / fontSize);
+                for(let i = 0; i < rows; i++) {
+                    trafficLines.push(createPacketLine(i * fontSize));
+                }
+            }
+
+            function animateTraffic() {
+                // Clear with slight trail effect
+                ctx.fillStyle = document.body.classList.contains('dark-mode') ? 'rgba(13, 17, 23, 0.3)' : 'rgba(246, 248, 250, 0.3)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                ctx.font = `${fontSize}px 'Fira Code', monospace`;
+                
+                trafficLines.forEach((line, index) => {
+                    // Update Position (Scroll Up)
+                    line.y -= line.speed;
+                    
+                    // Reset if off screen
+                    if(line.y < -fontSize) {
+                        trafficLines[index] = createPacketLine(canvas.height + fontSize);
+                    }
+
+                    // Draw
+                    ctx.fillStyle = document.body.classList.contains('dark-mode') 
+                        ? `rgba(88, 166, 255, ${line.opacity})` // Light Blue in Dark Mode
+                        : `rgba(3, 102, 214, ${line.opacity})`; // Dark Blue in Light Mode
+                    
+                    ctx.fillText(line.text, line.x, line.y);
+                });
+
+                requestAnimationFrame(animateTraffic);
+            }
+
+            resizeCanvas();
+            initTraffic();
+            animateTraffic();
+        }
+
+        // --- 5. Packet Capture Logic ---
+        const packetTableBody = document.querySelector('#packet-table tbody');
+        let packetData = [];
+        let captureActive = true;
+        let packetCount = 0;
+        const maxBuffer = 50;
+
+        function generateIP() { return `192.168.1.${Math.floor(Math.random() * 254) + 1}`}
+
+        function generatePacket() {
+            if (!captureActive) return;
+            packetCount++;
+            const protos = ['TCP', 'UDP', 'ICMP', 'HTTP', 'OSPF', 'SSH'];
+            const proto = protos[Math.floor(Math.random() * protos.length)];
+            const src = generateIP();
+            const dst = generateIP();
+            const len = Math.floor(Math.random() * 1500) + 64;
+            let info = "";
+            
+            if (proto === 'TCP') info = `${Math.floor(Math.random()*65535)} > 80 [SYN] Seq=0 Win=64240`;
+            else if (proto === 'HTTP') info = `GET /api/v1/status HTTP/1.1`;
+            else if (proto === 'OSPF') info = `Hello Packet, Backbone Area`;
+            else if (proto === 'SSH') info = `Encrypted Request Packet`;
+            else info = `Payload: ${len} bytes`;
+
+            const packet = {
+                no: packetCount,
+                time: new Date().toLocaleTimeString(),
+                src: src,
+                dst: dst,
+                proto: proto,
+                len: len,
+                info: info,
+                colorClass: "proto-" + proto.toLowerCase()
+            };
+
+            packetData.unshift(packet);
+            if (packetData.length > maxBuffer) packetData.pop();
+            renderTable();
+        }
+
+        function renderTable() {
+            const filterProto = document.getElementById('filter-proto').value.toLowerCase();
+            const filterIP = document.getElementById('filter-ip').value.toLowerCase();
+
+            const filtered = packetData.filter(p => {
+                const matchProto = p.proto.toLowerCase().includes(filterProto);
+                const matchIP = p.src.includes(filterIP) || p.dst.includes(filterIP);
+                return matchProto && matchIP;
+            });
+
+            if(packetTableBody) {
+                packetTableBody.innerHTML = filtered.map(p => `
+                    <tr class="${p.colorClass}">
+                        <td>${p.no}</td>
+                        <td>${p.time}</td>
+                        <td>${p.src}</td>
+                        <td>${p.dst}</td>
+                        <td>${p.proto}</td>
+                        <td>${p.len}</td>
+                        <td>${p.info}</td>
+                    </tr>
+                `).join('');
+            }
+        }
+
+        function applyFilters() { renderTable(); }
+
+        function toggleCapture() {
+            captureActive = !captureActive;
+            const btn = document.getElementById('capture-btn');
+            if(btn) {
+                btn.textContent = captureActive ? "Stop Capture" : "Start Capture";
+                btn.style.backgroundColor = captureActive ? "" : "#e74c3c";
+            }
+        }
+
+        function exportCSV() {
+            let csv = "No,Time,Source,Destination,Protocol,Length,Info\n";
+            packetData.forEach(p => {
+                csv += `${p.no},${p.time},${p.src},${p.dst},${p.proto},${p.len},"${p.info}"\n`;
+            });
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.setAttribute('hidden', '');
+            a.setAttribute('href', url);
+            a.setAttribute('download', 'capture_dump.csv');
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        function sortTable(key) {
+            packetData.sort((a, b) => {
+                if (a[key] < b[key]) return -1;
+                if (a[key] > b[key]) return 1;
+                return 0;
+            });
+            renderTable();
+        }
+
+        setInterval(generatePacket, 800);
     </script>
 </body>
 </html>

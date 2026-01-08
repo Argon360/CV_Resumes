@@ -274,6 +274,24 @@
         }
         body.light-mode .tech-stack { color: #e74c3c; font-weight: bold; }
 
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--text-color);
+            border: 2px solid var(--bg-color);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-color);
+        }
+        body.light-mode ::-webkit-scrollbar-thumb {
+            background: #ccc;
+        }
+
         /* Toggle Button */
         .toggle-container {
             position: absolute;
@@ -296,11 +314,67 @@
             color: var(--bg-color);
         }
 
+        /* Mode-Specific Visibility */
+        .angelic-content {
+            display: none;
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            color: #2c3e50;
+        }
+        .angelic-content i {
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        body.light-mode .terminal-window {
+            display: none !important;
+        }
+        body.light-mode .angelic-content {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
         /* Responsive */
         @media (max-width: 600px) {
             h1 { font-size: 2em; }
             .container { padding: 15px; width: 95%; margin: 20px auto; }
             .contact-bar { flex-direction: column; }
+        }
+        .terminal-window {
+            margin-top: 40px;
+            background: #000;
+            border: 2px solid var(--text-color);
+            padding: 10px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.9em;
+            height: 200px;
+            overflow-y: auto;
+            position: relative;
+        }
+        .terminal-output {
+            margin-bottom: 10px;
+            white-space: pre-wrap;
+        }
+        .input-line {
+            display: flex;
+        }
+        .prompt {
+            color: var(--highlight-color);
+            margin-right: 5px;
+        }
+        #cmd-input {
+            background: transparent;
+            border: none;
+            color: var(--text-color);
+            font-family: inherit;
+            font-size: inherit;
+            flex-grow: 1;
+            outline: none;
         }
     </style>
 </head>
@@ -384,6 +458,23 @@
                 <p><i class="fas fa-certificate"></i> <strong>Cisco Certified Network Associate (CCNA)</strong> – Connecting Cyber Networks</p>
             </div>
         </section>
+
+        <!-- Angelic / Corporate Content (Visible only in Light Mode) -->
+        <div class="angelic-content">
+            <i class="fas fa-shield-alt fa-3x"></i>
+            <h3>System Secure & Verified</h3>
+            <p>This profile adheres to all corporate compliance standards.</p>
+            <p><small>No active threats detected. Have a nice day.</small></p>
+        </div>
+
+        <!-- Interactive Terminal (Visible only in Dark Mode) -->
+        <div class="terminal-window" onclick="document.getElementById('cmd-input').focus()">
+            <div id="terminal-output" class="terminal-output">Welcome to Kali Linux. Type 'help' for commands.</div>
+            <div class="input-line">
+                <span class="prompt">root@kali:~#</span>
+                <input type="text" id="cmd-input" autocomplete="off" spellcheck="false">
+            </div>
+        </div>
         
         <footer style="margin-top: 50px; text-align: center; font-size: 0.8em; opacity: 0.7;">
             <p>System Status: ONLINE | Integrity: 100% | Generated: <span id="date"></span></p>
@@ -391,6 +482,144 @@
     </div>
 
     <script>
+        // --- Terminal Logic ---
+        const cmdInput = document.getElementById('cmd-input');
+        const outputDiv = document.getElementById('terminal-output');
+        let commandHistory = [];
+        let historyIndex = -1;
+
+        cmdInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                const rawInput = this.value;
+                const command = rawInput.trim().toLowerCase();
+                let response = '';
+
+                // Add to history
+                if (command) {
+                    commandHistory.push(rawInput);
+                    historyIndex = commandHistory.length;
+                }
+
+                // Echo the command
+                outputDiv.innerHTML += `<div><span style="color:var(--highlight-color)">root@kali:~#</span> ${rawInput}</div>`;
+
+                switch(command) {
+                    case 'help':
+                        response = "Available commands:<br>" +
+                                   "  <span style='color:#fff'>ls, ll, skills</span>   : List technical arsenal<br>" +
+                                   "  <span style='color:#fff'>whoami</span>           : Display profile overview<br>" +
+                                   "  <span style='color:#fff'>projects</span>         : List deployed exploits & tools<br>" +
+                                   "  <span style='color:#fff'>cat cv.txt</span>       : Print full text summary<br>" +
+                                   "  <span style='color:#fff'>contact, mail</span>    : Show contact info<br>" +
+                                   "  <span style='color:#fff'>clear, cls</span>       : Clear terminal<br>" +
+                                   "  <span style='color:#fff'>sudo</span>             : Execute as superuser";
+                        break;
+                    case 'ls':
+                    case 'll':
+                    case 'skills':
+                        response = "drwxr-xr-x  python_scripts/<br>" +
+                                   "drwxr-xr-x  network_tools/<br>" +
+                                   "-rwxr-xr-x  burp_suite_pro<br>" +
+                                   "-rwxr-xr-x  metasploit<br>" +
+                                   "-rw-r--r--  cryptography.key<br>" +
+                                   "-rw-r--r--  docker_config.yml";
+                        break;
+                    case 'projects':
+                        response = "1. <span style='color:var(--text-color)'>BlueDucky</span> (CVE-2023-45866 implementation)<br>" +
+                                   "2. <span style='color:var(--text-color)'>WikiCrawler</span> (AI-powered OSINT tool)";
+                        break;
+                    case 'education':
+                        response = "B.Sc. Computer Science - NES Ratnam College (2024)<br>GPA: 3.X/4.0 | Focus: Network Security";
+                        break;
+                    case 'certs':
+                    case 'certificates':
+                        response = "[+] Certified Ethical Hacker (CEH)<br>[+] Cisco Certified Network Associate (CCNA)";
+                        break;
+                    case 'whoami':
+                        response = "uid=0(root) gid=0(root) groups=0(root)<br>" +
+                                   "Name: Dhiraj Patil<br>" +
+                                   "Role: Cybersecurity Researcher & Penetration Tester";
+                        break;
+                    case 'contact':
+                    case 'mail':
+                        response = "Email: <a href='mailto:dp5545385@gmail.com' style='color:inherit'>dp5545385@gmail.com</a><br>" +
+                                   "GitHub: github.com/Argon360";
+                        break;
+                    case 'pwd':
+                        response = "/home/dhiraj/portfolio";
+                        break;
+                    case 'date':
+                        response = new Date().toString();
+                        break;
+                    case 'sudo':
+                        response = "dhiraj is not in the sudoers file. This incident will be reported.";
+                        break;
+                    case 'cat cv.txt':
+                    case 'cat cv':
+                        response = "LOADING DATA...<br><br>" +
+                                   "Dhiraj Patil - Network & Security Engineer<br>" +
+                                   "Specialized in: Offensive Security, Tool Development, Automation.<br>" +
+                                   "Key Tools: Burp, Nmap, Python, Metasploit.";
+                        break;
+                    case 'ping google.com':
+                    case 'ping':
+                        response = "PING google.com (142.250.193.78) 56(84) bytes of data.<br>" +
+                                   "64 bytes from 142.250.193.78: icmp_seq=1 ttl=114 time=14.2 ms<br>" +
+                                   "64 bytes from 142.250.193.78: icmp_seq=2 ttl=114 time=13.8 ms<br>" +
+                                   "^C --- google.com ping statistics ---<br>" +
+                                   "2 packets transmitted, 2 received, 0% packet loss";
+                        break;
+                    case 'matrix':
+                        response = "The Matrix has you, Dhiraj. Follow the white rabbit.";
+                        break;
+                    case 'clear':
+                    case 'cls':
+                        outputDiv.innerHTML = 'Welcome to Kali Linux. Type \'help\' for commands.';
+                        this.value = '';
+                        return;
+                    case 'exit':
+                        document.querySelector('.terminal-window').style.display = 'none';
+                        return;
+                    case '':
+                        response = '';
+                        break;
+                    default:
+                        if (command.startsWith('sudo ')) {
+                             response = "Permission denied: You do not have root access on this machine.";
+                        } else {
+                             response = `bash: ${command}: command not found`;
+                        }
+                }
+
+                if(response) {
+                    outputDiv.innerHTML += `<div>${response}</div>`;
+                }
+                
+                this.value = '';
+                // Auto-scroll to bottom
+                document.querySelector('.terminal-window').scrollTop = document.querySelector('.terminal-window').scrollHeight;
+            }
+            
+            // History Navigation (Up Arrow)
+            if (e.key === 'ArrowUp') {
+                if (historyIndex > 0) {
+                    historyIndex--;
+                    this.value = commandHistory[historyIndex];
+                }
+                e.preventDefault();
+            }
+            // History Navigation (Down Arrow)
+            if (e.key === 'ArrowDown') {
+                if (historyIndex < commandHistory.length - 1) {
+                    historyIndex++;
+                    this.value = commandHistory[historyIndex];
+                } else {
+                    historyIndex = commandHistory.length;
+                    this.value = '';
+                }
+                e.preventDefault();
+            }
+        });
         // --- Configuration ---
         const roles = ["Cybersecurity Analyst", "Penetration Tester", "CEH Certified", "Exploit Developer"];
         const skills = [

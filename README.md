@@ -6,7 +6,6 @@ Links to my domain-specific CVs.
 
 - [Cybersecurity CV (Hacker Mode)](./Dhiraj_Patil_CyberSec_CV_Hacker.html)
 - [Network Engineering CV (Professional Dashboard)](./Dhiraj_Patil_NetworkEng_CV_Professional.html)
-- [Network Engineering CV (Standard)](./Dhiraj_Patil_NetworkEng_CV.html)
 
 ### Instructions
 Open `index.html` in a browser to see the interactive landing page.

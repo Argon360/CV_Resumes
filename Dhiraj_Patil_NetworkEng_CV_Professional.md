@@ -14,6 +14,10 @@ hostname Dhiraj_Patil
 ! GitHub: github.com/Argon360
 ! LinkedIn: linkedin.com/in/dhiraj-patil
 !
+banner motd ^C
+*** LIVE DASHBOARD AVAILABLE ***
+*** Access HTML version for Real-time Packet Capture ***
+^C
 ```
 
 ## interface Professional_Summary
@@ -22,14 +26,15 @@ description "CCNA-certified graduate with expertise in network infrastructure, L
 status up
 ```
 
-## ip protocols (Technical Skills)
-| Protocol/Category | Details |
-| :--- | :--- |
-| **Routing & Switching** | `OSPF`, `BGP`, `VLANs`, `STP`, `Trunking`, `Inter-VLAN Routing` |
-| **Network Services** | `DNS`, `DHCP`, `NAT/PAT`, `ACLs`, `VPN (IPSec/SSL)`, `SSH`, `FTP` |
-| **Operating Systems** | `Cisco IOS`, `Linux (RHEL/Debian)`, `Windows Server` |
-| **Automation & Cloud** | `Python (Netmiko/Napalm)`, `Bash Scripting`, `Docker Networking` |
-| **Tools** | `Wireshark`, `Tcpdump`, `Packet Tracer`, `GNS3`, `Nmap` |
+## ip protocols (Interface Status)
+| Interface | Status | Protocol |
+| :--- | :--- | :--- |
+| **Routing** | `UP` | `OSPF`, `BGP`, `RIP` |
+| **Switching** | `UP` | `VLANs`, `STP`, `Trunking` |
+| **Security** | `UP` | `ACLs`, `VPN (IPSec/SSL)`, `NAT/PAT` |
+| **Automation** | `UP` | `Python`, `Bash`, `Ansible` |
+| **Monitoring** | `UP` | `Wireshark`, `SNMP`, `Tcpdump` |
+| **Platform** | `UP` | `Cisco IOS`, `Linux (RHEL)`, `Docker` |
 
 ## router bgp 65000 (Projects)
 
@@ -42,12 +47,14 @@ import networkx as nx
 description = "Graph Algorithms & Routing Logic"
 ```
 
-## crypto pki certificates (Education & Certs)
-*   **Bachelor of Science (Computer Science)**
-    *   *NES Ratnam College* | Oct 2024
-    *   *Modules:* Data Communications, Computer Networks, Operating Systems.
-*   **[ACTIVE] Cisco Certified Network Associate (CCNA)**
-*   **[ACTIVE] Certified Ethical Hacker (CEH)**
+## traceroute career-path
+```bash
+user@admin:~$ traceroute career-path
+1  Oct 2024  B.Sc. Comp Sci (NES Ratnam College)
+2  Active    CCNA (Cisco Certified Network Associate)
+3  Active    CEH (Certified Ethical Hacker)
+4  * * *     Request timed out (Waiting for Opportunity)
+```
 
 ## line console 0 (Contact)
 *   **Email:** `dp5545385@gmail.com`

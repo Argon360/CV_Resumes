@@ -7,16 +7,26 @@
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            background-color: #0f172a; /* Fallback */
             color: #f8fafc;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
+            overflow: hidden;
+            perspective: 1000px;
+        }
+        #starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
         }
         .hub-container {
-            background: rgba(30, 41, 59, 0.7);
+            background: rgba(30, 41, 59, 0.4);
             padding: 3rem;
             border-radius: 1rem;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
@@ -25,16 +35,20 @@
             max-width: 500px;
             width: 90%;
             text-align: center;
+            transform-style: preserve-3d;
+            transition: transform 0.1s;
         }
         h1 {
             font-size: 2rem;
             margin-bottom: 2rem;
             color: #38bdf8;
             letter-spacing: -0.025em;
+            transform: translateZ(20px);
         }
         ul {
             list-style: none;
             padding: 0;
+            transform: translateZ(30px);
         }
         li {
             margin-bottom: 1rem;
@@ -53,19 +67,89 @@
         a:hover {
             background: #38bdf8;
             color: #0f172a;
-            transform: translateY(-2px);
+            transform: translateY(-2px) scale(1.02);
             box-shadow: 0 10px 15px -3px rgba(56, 189, 248, 0.3);
         }
     </style>
 </head>
 <body>
-    <div class="hub-container">
+    <canvas id="starfield"></canvas>
+    <div class="hub-container" id="card">
         <h1>My Professional Profiles</h1>
         <ul>
             <li><a href="Dhiraj_Patil_CyberSec_CV_Hacker.html" target="_blank">Cybersecurity CV (Hacker Mode)</a></li>
             <li><a href="Dhiraj_Patil_NetworkEng_CV_Professional.html" target="_blank">Network Engineering CV (Professional Dashboard)</a></li>
-            <li><a href="Dhiraj_Patil_NetworkEng_CV.html" target="_blank">Network Engineering CV (Standard)</a></li>
         </ul>
     </div>
+
+    <script>
+        // --- 3D Tilt Effect ---
+        const card = document.getElementById('card');
+        document.addEventListener('mousemove', (e) => {
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+            card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+        });
+
+        document.addEventListener('mouseleave', () => {
+            card.style.transform = `rotateY(0deg) rotateX(0deg)`;
+        });
+
+        // --- Starfield Animation ---
+        const canvas = document.getElementById('starfield');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        
+        const stars = [];
+        const numStars = 200;
+        const speed = 2;
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Star {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.z = Math.random() * width; 
+            }
+            update() {
+                this.z -= speed;
+                if (this.z <= 0) {
+                    this.z = width;
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height;
+                }
+            }
+            draw() {
+                const x = (this.x - width / 2) * (width / this.z) + width / 2;
+                const y = (this.y - height / 2) * (width / this.z) + height / 2;
+                const radius = width / this.z; // Size based on distance
+
+                ctx.beginPath();
+                ctx.fillStyle = "white";
+                ctx.arc(x, y, radius, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < numStars; i++) stars.push(new Star());
+
+        function animate() {
+            ctx.fillStyle = "black";
+            ctx.fillRect(0, 0, width, height);
+            
+            stars.forEach(star => {
+                star.update();
+                star.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
 </body>
 </html>
