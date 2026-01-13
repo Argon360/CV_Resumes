@@ -16,54 +16,58 @@
         }
 
         @media print {
-            body { margin: 0; padding: 0; }
+            body { 
+                margin: 0; 
+                padding: 0; 
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
             @page { 
                 size: A4; 
-                margin: 0; /* Zero margin for full bleed header */
+                margin: 0; 
             }
         }
 
         * {
             box-sizing: border-box;
-            -webkit-print-color-adjust: exact;
         }
 
         body {
             font-family: 'Inter', -apple-system, sans-serif;
-            font-size: 12pt; /* Requested 12pt minimum */
+            font-size: 10pt;
             color: var(--text-main);
             background: #ffffff;
-            line-height: 1.35; /* Tightened line-height to compensate for larger font */
+            line-height: 1.35;
             margin: 0;
             padding: 0;
             width: 210mm;
-            min-height: 297mm;
-            display: flex;
-            flex-direction: column;
+            height: 297mm;
+            overflow: hidden;
         }
 
         /* Top Header Area */
         header {
             background-color: var(--primary);
             color: white;
-            /* Compact padding for single page */
-            padding: 12px 15mm; 
+            /* Precise alignment: 12mm outer padding */
+            padding: 10mm 12mm;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 35mm; /* Fixed height for consistency */
         }
 
         .header-title h1 {
             margin: 0;
-            font-size: 22pt; /* Slightly compacted header title */
+            font-size: 20pt;
             font-weight: 800;
             letter-spacing: -0.02em;
             text-transform: uppercase;
         }
 
         .header-title p {
-            margin: 2px 0 0;
-            font-size: 11pt;
+            margin: 4px 0 0;
+            font-size: 10pt;
             font-weight: 500;
             color: #94a3b8;
             letter-spacing: 0.05em;
@@ -72,80 +76,65 @@
 
         .header-contact {
             text-align: right;
-            font-size: 10pt;
-            line-height: 1.3;
+            font-size: 9pt;
+            line-height: 1.4;
         }
 
         .header-contact a {
             color: #ffffff;
             text-decoration: none;
             border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.2s;
-        }
-
-        .header-contact a:hover {
-            border-bottom-color: #ffffff;
-            color: #ffffff;
-        }
-
-        a {
-            color: var(--accent);
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-        }
-
-        .main-content a:hover, .sidebar a:hover {
-            border-bottom-color: var(--accent);
         }
 
         /* Layout Grid */
         .wrapper {
             display: grid;
-            grid-template-columns: 68% 32%;
-            flex-grow: 1;
+            /* Exact split matching the gradient background */
+            grid-template-columns: 67% 33%;
+            /* The Faux Column Trick: Gradient creates the sidebar bg */
+            background: linear-gradient(to right, white 67%, var(--bg-sidebar) 67%);
+            height: 262mm; /* 297mm (Page) - 35mm (Header) */
         }
 
         /* Main Content */
         .main-content {
-            /* Compact internal padding */
-            padding: 15px 5mm 15px 10mm; 
+            /* Top: 8mm, Right: 6mm, Bottom: 0, Left: 12mm (Aligns with Header) */
+            padding: 8mm 6mm 0 12mm;
         }
 
         /* Sidebar */
         .sidebar {
-            background-color: var(--bg-sidebar);
-            /* Compact internal padding */
-            padding: 15px 10mm 15px 5mm; 
-            border-left: 1px solid var(--border-color);
+            /* Background handled by wrapper gradient */
+            /* Top: 8mm, Right: 12mm (Aligns with Header), Bottom: 0, Left: 6mm */
+            padding: 8mm 12mm 0 6mm;
+            border-left: 1px solid var(--border-color); /* Optional: visual separator */
         }
 
         section {
-            margin-bottom: 12px; /* Tighter section spacing */
+            margin-bottom: 12px;
             break-inside: avoid;
         }
 
+        /* Ensure top alignment across columns */
+        .main-content > section:first-child h2,
+        .sidebar > section:first-child h2 {
+            margin-top: 0;
+        }
+
         h2 {
-            font-size: 12pt;
+            font-size: 11pt;
             font-weight: 700;
             color: var(--accent);
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            margin: 0 0 6px 0; /* Tighter header spacing */
-            display: flex;
-            align-items: center;
-        }
-
-        h2::after {
-            content: "";
-            flex-grow: 1;
-            height: 1px;
-            background: var(--border-color);
-            margin-left: 10px;
+            margin: 0 0 8px 0;
+            padding-bottom: 4px;
+            border-bottom: 1px solid var(--border-color);
         }
 
         /* Entry Styling */
         .entry {
-            margin-bottom: 10px; /* Tighter entry spacing */
+            margin-bottom: 10px;
         }
 
         .entry-header {
@@ -156,20 +145,20 @@
         }
 
         .entry-title {
-            font-size: 13pt;
+            font-size: 11.5pt;
             font-weight: 700;
             color: var(--primary);
         }
 
         .entry-date {
-            font-size: 10pt;
+            font-size: 9pt;
             font-weight: 600;
             color: var(--text-muted);
             text-transform: uppercase;
         }
 
         .entry-subtitle {
-            font-size: 11pt;
+            font-size: 10pt;
             font-weight: 600;
             color: var(--accent);
             margin-bottom: 2px;
@@ -181,10 +170,10 @@
         }
 
         li {
-            font-size: 12pt;
-            margin-bottom: 2px; /* Minimal list spacing */
+            font-size: 10pt;
+            margin-bottom: 3px;
             color: var(--text-main);
-            line-height: 1.25; /* Compact line height */
+            line-height: 1.4;
         }
 
         /* Sidebar Specifics */
@@ -193,10 +182,10 @@
         }
 
         .skill-label {
-            font-size: 11pt;
+            font-size: 10pt;
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 3px;
+            margin-bottom: 4px;
             display: block;
         }
 
@@ -210,10 +199,10 @@
             background: white;
             border: 1px solid #d1d5db;
             color: var(--text-main);
-            font-size: 10pt;
+            font-size: 9pt;
             font-weight: 500;
-            padding: 2px 5px;
-            border-radius: 3px;
+            padding: 2px 6px;
+            border-radius: 4px;
         }
 
         .sidebar-entry {
@@ -221,23 +210,23 @@
         }
 
         .sidebar-entry-title {
-            font-size: 12pt;
+            font-size: 11pt;
             font-weight: 700;
             color: var(--primary);
         }
 
         .sidebar-entry-sub {
-            font-size: 11pt;
+            font-size: 10pt;
             color: var(--text-muted);
-            margin-top: 0;
+            margin-top: 1px;
         }
 
         .profile-summary {
-            font-size: 12pt;
+            font-size: 10pt;
             color: var(--text-main);
             text-align: justify;
             margin-bottom: 15px;
-            line-height: 1.3;
+            line-height: 1.5;
         }
     </style>
 </head>
@@ -246,7 +235,7 @@
     <header>
         <div class="header-title">
             <h1>Dhiraj Patil</h1>
-            <p>Network Engineer | Security Analyst</p>
+            <p>Entry-Level Network Engineer | CCNA | Security & Linux Fundamentals</p>
         </div>
         <div class="header-contact">
             <div>Thane/Mumbai, India</div>
@@ -264,7 +253,7 @@
             <section>
                 <h2>Profile Summary</h2>
                 <div class="profile-summary">
-                    CCNA-certified graduate with deep expertise in network infrastructure, security, and Linux administration. Proficient in designing secure architectures, implementing routing protocols, and leveraging automation tools like Python and Ansible to optimize performance. Committed to building resilient and secure network environments through protocol analysis and advanced firewall management.
+                    Detail-oriented Computer Science graduate with CCNA and CEH certifications and strong hands-on exposure to networking, security fundamentals, and Linux administration through structured labs and academic projects. Experienced in configuring routing protocols, VLANs, NAT, ACLs, and basic VPNs in simulated enterprise environments. Actively developing skills in network troubleshooting, traffic analysis, and automation using Python and Ansible. Seeking an entry-level role in network or security operations where fundamentals, discipline, and continuous learning are valued.
                 </div>
             </section>
 
@@ -278,9 +267,10 @@
                     </div>
                     <div class="entry-subtitle">Connecting Cyber Networks Institute</div>
                     <ul>
-                        <li>Mastered enterprise-grade switching, routing protocols, and vulnerability assessment through intensive hands-on <strong>CCNA</strong> and <strong>CEH</strong> training.</li>
-                        <li>Utilize <strong>Wireshark</strong> for deep-packet analysis to identify network latency, traffic anomalies, and potential security threats.</li>
-                        <li>Configuring and maintaining next-generation firewalls including <strong>Cisco ASA, Checkpoint, and Palo Alto</strong> to enforce perimeter security.</li>
+                        <li>Hands-on configuration and troubleshooting of switching and routing concepts aligned with CCNA curriculum in controlled lab environments.</li>
+                        <li>Performed packet-level traffic analysis using <strong>Wireshark</strong> to identify latency issues, abnormal traffic patterns, and common network misconfigurations.</li>
+                        <li>Practiced firewall concepts including rule creation, NAT, and access control using <strong>Cisco ASA</strong> and simulated <strong>Check Point / Palo Alto</strong> lab setups.</li>
+                        <li>Conducted basic vulnerability scanning and reconnaissance exercises as part of CEH-aligned training modules.</li>
                     </ul>
                 </div>
 
@@ -289,24 +279,28 @@
                         <span class="entry-title">Network Infrastructure Lab</span>
                         <span class="entry-date">Academic Project</span>
                     </div>
-                    <div class="entry-subtitle">Enterprise Simulation (Cisco IOS & RHEL)</div>
+                    <div class="entry-subtitle">Enterprise Network Simulation – Cisco IOS & RHEL</div>
                     <ul>
-                        <li>Architected scalable network topologies using <strong>OSPF</strong> and <strong>BGP</strong> for dynamic and reliable routing.</li>
-                        <li>Implemented robust security controls including ACLs, NAT/PAT, and IPSec VPN tunnels for secure data transmission.</li>
-                        <li>Automated core configuration tasks using <strong>Python</strong> and <strong>Ansible</strong>, achieving significant reductions in deployment timelines.</li>
+                        <li>Designed and implemented a multi-router enterprise-style topology using <strong>OSPF</strong> for internal routing and <strong>BGP</strong> for external route exchange.</li>
+                        <li>Configured VLANs, inter-VLAN routing, static and dynamic NAT/PAT, and extended ACLs to enforce traffic segmentation and security policies.</li>
+                        <li>Implemented IPSec site-to-site VPN tunnels in a simulated WAN scenario to ensure secure data transmission.</li>
+                        <li>Automated repetitive configuration tasks using Python and Ansible, improving consistency and reducing manual configuration effort.</li>
                     </ul>
                 </div>
+            </section>
 
+            <section>
+                <h2>Leadership & Volunteer Experience</h2>
                 <div class="entry">
                     <div class="entry-header">
-                        <span class="entry-title">Regional Coordinator (Leadership)</span>
+                        <span class="entry-title">Regional Coordinator</span>
                         <span class="entry-date">Present</span>
                     </div>
-                    <div class="entry-subtitle">Robin Hood Army (Bhandup - Mumbra Region)</div>
+                    <div class="entry-subtitle">Robin Hood Army – Bhandup–Mumbra Region</div>
                     <ul>
-                        <li>Orchestrating large-scale food distribution logistics in a zero-funds environment, serving thousands of underprivileged citizens.</li>
-                        <li>Managing a diverse volunteer workforce, demonstrating strong organizational leadership and resource optimization.</li>
-                        <li><strong>Robin Hood Academy:</strong> Facilitating primary education initiatives to bridge the gap for street children entering formal schooling.</li>
+                        <li>Coordinating food collection and distribution operations in a zero-funds model, serving large groups of underprivileged individuals.</li>
+                        <li>Managing and scheduling volunteers across multiple locations, ensuring timely execution of weekly drives.</li>
+                        <li>Supporting Robin Hood Academy initiatives by facilitating basic education and transition support for street children entering formal schooling.</li>
                     </ul>
                 </div>
             </section>
@@ -316,18 +310,32 @@
             <section>
                 <h2>Technical Skills</h2>
                 <div class="skill-item">
-                    <span class="skill-label">Networking & Security</span>
+                    <span class="skill-label">Networking Fundamentals</span>
                     <div class="tags">
-                        <span class="tag">CCNA</span> <span class="tag">OSPF/BGP</span> <span class="tag">VLANs</span>
-                        <span class="tag">IPSec VPN</span> <span class="tag">ACLs</span> <span class="tag">NAT/PAT</span>
-                        <span class="tag">Firewalls</span>
+                        <span class="tag">OSPF/BGP (lab)</span>
+                        <span class="tag">VLANs</span>
+                        <span class="tag">Inter-VLAN Routing</span>
+                        <span class="tag">DHCP/DNS (basics)</span>
                     </div>
                 </div>
                 <div class="skill-item">
-                    <span class="skill-label">Tools & Automation</span>
+                    <span class="skill-label">Security Basics</span>
                     <div class="tags">
-                        <span class="tag">Python</span> <span class="tag">Ansible</span> <span class="tag">Wireshark</span>
-                        <span class="tag">Cisco IOS</span> <span class="tag">Linux (RHEL)</span> <span class="tag">Nmap</span>
+                        <span class="tag">ACLs</span>
+                        <span class="tag">NAT / PAT</span>
+                        <span class="tag">IPSec VPN (site-to-site)</span>
+                        <span class="tag">Firewall (Cisco ASA)</span>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-label">Tools & Platforms</span>
+                    <div class="tags">
+                        <span class="tag">Cisco IOS</span>
+                        <span class="tag">Linux (RHEL)</span>
+                        <span class="tag">Wireshark</span>
+                        <span class="tag">Nmap</span>
+                        <span class="tag">Python (basics)</span>
+                        <span class="tag">Ansible (intro)</span>
                         <span class="tag">Git</span>
                     </div>
                 </div>
