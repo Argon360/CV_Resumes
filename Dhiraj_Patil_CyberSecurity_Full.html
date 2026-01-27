@@ -3,12 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dhiraj Patil - Network Engineer CV</title>
+    <title>Dhiraj Patil - Cybersecurity Analyst CV</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #0f172a;
-            --accent: #1e40af;
+            --accent: #dc2626; /* Changed to Red for Cyber/Security vibe, or keep blue? Let's go with a darker red/crimson for "Red Team" feel */
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --bg-sidebar: #f8fafc;
+            --border-color: #cbd5e1;
+        }
+
+        /* Override accent to a security-red/orange if desired, or stick to professional blue. 
+           Let's stick to the structure but maybe slightly tweak the accent color to distinguish it. 
+           Actually, the user asked to "follow the format", which usually implies the same design. 
+           I'll keep the blue --accent: #1e40af; to be safe, or maybe a "Security Blue".
+           Let's keep the original blue to ensure it looks like a set.
+        */
+        :root {
+            --primary: #0f172a;
+            --accent: #1e40af; 
             --text-main: #334155;
             --text-muted: #64748b;
             --bg-sidebar: #f8fafc;
@@ -34,40 +49,38 @@
 
         body {
             font-family: 'Inter', -apple-system, sans-serif;
-            font-size: 10pt;
+            font-size: 9.5pt;
             color: var(--text-main);
             background: #ffffff;
-            line-height: 1.35;
+            line-height: 1.3;
             margin: 0;
             padding: 0;
             width: 210mm;
-            height: 297mm;
-            overflow: hidden;
+            min-height: 297mm;
         }
 
         /* Top Header Area */
         header {
             background-color: var(--primary);
             color: white;
-            /* Precise alignment: 12mm outer padding */
-            padding: 10mm 12mm;
+            padding: 8mm 12mm;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 35mm; /* Fixed height for consistency */
+            height: 30mm;
         }
 
         .header-title h1 {
             margin: 0;
-            font-size: 20pt;
+            font-size: 18pt;
             font-weight: 800;
             letter-spacing: -0.02em;
             text-transform: uppercase;
         }
 
         .header-title p {
-            margin: 4px 0 0;
-            font-size: 10pt;
+            margin: 2px 0 0;
+            font-size: 9pt;
             font-weight: 500;
             color: #94a3b8;
             letter-spacing: 0.05em;
@@ -89,63 +102,57 @@
         /* Layout Grid */
         .wrapper {
             display: grid;
-            /* Exact split matching the gradient background */
             grid-template-columns: 67% 33%;
-            /* The Faux Column Trick: Gradient creates the sidebar bg */
             background: linear-gradient(to right, white 67%, var(--bg-sidebar) 67%);
-            height: 262mm; /* 297mm (Page) - 35mm (Header) */
+            min-height: 267mm;
         }
 
         /* Main Content */
         .main-content {
-            /* Top: 8mm, Right: 6mm, Bottom: 0, Left: 12mm (Aligns with Header) */
-            padding: 8mm 6mm 0 12mm;
+            padding: 6mm 6mm 0 12mm;
         }
 
         /* Sidebar */
         .sidebar {
-            /* Background handled by wrapper gradient */
-            /* Top: 8mm, Right: 12mm (Aligns with Header), Bottom: 0, Left: 6mm */
-            padding: 8mm 12mm 0 6mm;
-            border-left: 1px solid var(--border-color); /* Optional: visual separator */
+            padding: 6mm 12mm 0 6mm;
+            border-left: 1px solid var(--border-color);
         }
 
         section {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             break-inside: avoid;
         }
 
-        /* Ensure top alignment across columns */
         .main-content > section:first-child h2,
         .sidebar > section:first-child h2 {
             margin-top: 0;
         }
 
         h2 {
-            font-size: 11pt;
+            font-size: 10.5pt;
             font-weight: 700;
             color: var(--accent);
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            margin: 0 0 8px 0;
-            padding-bottom: 4px;
+            margin: 0 0 6px 0;
+            padding-bottom: 3px;
             border-bottom: 1px solid var(--border-color);
         }
 
         /* Entry Styling */
         .entry {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .entry-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 2px;
+            margin-bottom: 1px;
         }
 
         .entry-title {
-            font-size: 11.5pt;
+            font-size: 10.5pt;
             font-weight: 700;
             color: var(--primary);
         }
@@ -158,7 +165,7 @@
         }
 
         .entry-subtitle {
-            font-size: 10pt;
+            font-size: 9.5pt;
             font-weight: 600;
             color: var(--accent);
             margin-bottom: 2px;
@@ -170,10 +177,10 @@
         }
 
         li {
-            font-size: 10pt;
-            margin-bottom: 3px;
+            font-size: 9.5pt;
+            margin-bottom: 2px;
             color: var(--text-main);
-            line-height: 1.4;
+            line-height: 1.35;
         }
 
         /* Sidebar Specifics */
@@ -235,15 +242,15 @@
     <header>
         <div class="header-title">
             <h1>Dhiraj Patil</h1>
-            <p>Network Engineer | Security Operations | CCNA & CEH Trained</p>
+            <p>Cybersecurity Analyst | Penetration Tester | CEH Trained</p>
         </div>
         <div class="header-contact">
             <div>Thane/Mumbai, India</div>
             <div>+91 8652010197</div>
             <div><a href="mailto:dp5545385@gmail.com">dp5545385@gmail.com</a></div>
             <div>
-                <a href="https://linkedin.com/in/dhiraj-patil-20a29122b/">LinkedIn</a> | 
-                <a href="https://github.com/Argon360">GitHub</a>
+                <a href="https://linkedin.com/in/dhiraj-patil-20a29122b/">LinkedIn Profile</a> | 
+                <a href="https://github.com/Argon360">GitHub Profile</a>
             </div>
         </div>
     </header>
@@ -251,41 +258,57 @@
     <div class="wrapper">
         <main class="main-content">
             <section>
-                <h2>Professional Summary</h2>
+                <h2>Mission Briefing</h2>
                 <div class="profile-summary">
-                    Detail-oriented professional with comprehensive training in CCNA and CEH, possessing a strong foundation in network infrastructure, security operations, and Linux administration. Proven ability to design, configure, and troubleshoot complex network environments and conduct rigorous security assessments. Adept at leveraging automation (Python/Bash) to optimize network performance and enhance security posture. Seeking an entry-level role in Network Engineering, NOC, or SOC to apply technical expertise in maintaining resilient and secure enterprise infrastructures.
+                    Early-career cybersecurity professional with a strong foundation in offensive security, vulnerability assessment, and penetration testing methodologies. Hands-on experience in identifying, exploiting, and documenting security weaknesses across web applications, networks, and Bluetooth-enabled IoT devices through labs, academic projects, and independent research. Actively developing custom security tools and maintaining a focused learning trajectory toward VAPT and red-team operations.
                 </div>
             </section>
 
             <section>
-                <h2>Technical Projects & Hands-on Exposure</h2>
+                <h2>Technical Experience & Projects</h2>
                 
                 <div class="entry">
                     <div class="entry-header">
-                        <span class="entry-title">Enterprise Network Infrastructure Simulation</span>
-                        <span class="entry-date">Technical Implementation</span>
+                        <span class="entry-title">Security Researcher & Tool Developer</span>
+                        <span class="entry-date">Oct 2023 – Present</span>
                     </div>
-                    <div class="entry-subtitle">Multi-Vendor Routing & Switching Environment</div>
+                    <div class="entry-subtitle">Independent Projects (Open Source / GitHub)</div>
                     <ul>
-                        <li>Designed and implemented a multi-area <strong>OSPF and BGP</strong> routing architecture to simulate high-availability enterprise connectivity.</li>
-                        <li>Configured <strong>VLANs, Inter-VLAN routing, and STP</strong> to optimize Layer 2 traffic flow and ensure network redundancy.</li>
-                        <li>Hardened network devices by implementing <strong>SSH, secure management planes, and granular Access Control Lists (ACLs)</strong>.</li>
-                        <li>Executed <strong>NAT/PAT</strong> configurations to facilitate secure internet access for internal network segments.</li>
-                        <li>Implemented <strong>IPSec site-to-site VPN</strong> tunnels in a simulated WAN scenario to ensure secure data transmission.</li>
+                        <li><strong>IoT Vulnerability Research (BlueDucky):</strong> Utilized the BlueDucky framework to identify and exploit unauthenticated Bluetooth peering vulnerabilities (CVE-2023-45866), demonstrating risks of unauthenticated keystroke injection.</li>
+                        <li>Conducted controlled proof-of-concept attacks to validate exploit feasibility and document real-world security impact.</li>
+                        <li>Built <strong>WikiCrawler</strong>, an OSINT automation tool using bi-directional BFS logic and AI-assisted entity correlation to support reconnaissance and relationship mapping.</li>
+                        <li>Followed responsible disclosure principles and secure coding practices while developing modular, reusable tooling for learning and research purposes.</li>
                     </ul>
                 </div>
 
                 <div class="entry">
                     <div class="entry-header">
-                        <span class="entry-title">Network Traffic Analysis & Security Hardening</span>
-                        <span class="entry-date">Ongoing Research</span>
+                        <span class="entry-title">Penetration Testing Analyst (Training & Labs)</span>
+                        <span class="entry-date">2023 – 2024</span>
                     </div>
-                    <div class="entry-subtitle">Protocol Analysis & Threat Detection</div>
+                    <div class="entry-subtitle">Connecting Cyber Networks Institute</div>
                     <ul>
-                        <li>Utilized <strong>Wireshark and Scapy</strong> to perform Deep Packet Inspection (DPI) for identifying unauthorized network activities and protocol anomalies.</li>
-                        <li>Analyzed TCP/IP handshakes and packet headers to detect potential <strong>SYN floods</strong> and man-in-the-middle (MitM) indicators.</li>
-                        <li>Developed custom <strong>Python scripts</strong> for automated log parsing and real-time traffic monitoring.</li>
-                        <li>Automated repetitive configuration tasks using <strong>Ansible</strong>, improving consistency and reducing manual configuration effort.</li>
+                        <li>Performed end-to-end penetration testing simulations in lab environments, including reconnaissance, scanning, enumeration, exploitation, and post-exploitation analysis.</li>
+                        <li>Used tools such as <strong>Nmap</strong>, <strong>Metasploit</strong>, <strong>Burp Suite Professional</strong>, <strong>Hydra</strong>, and <strong>Wireshark</strong> to identify common vulnerabilities.</li>
+                        <li>Assessed web applications against OWASP Top 10, identifying issues such as SQL Injection, Cross-Site Scripting (XSS), and authentication flaws.</li>
+                        <li>Prepared structured vulnerability reports covering findings, risk severity, exploitation steps, and remediation guidance.</li>
+                    </ul>
+                </div>
+
+            </section>
+
+            <section>
+                <h2>Leadership & Volunteer Experience</h2>
+                <div class="entry">
+                    <div class="entry-header">
+                        <span class="entry-title">Regional Coordinator</span>
+                        <span class="entry-date">Present</span>
+                    </div>
+                    <div class="entry-subtitle">Robin Hood Army – Bhandup–Mumbra Region</div>
+                    <ul>
+                        <li>Coordinating food collection and distribution activities under a zero-funds operational model.</li>
+                        <li>Managing volunteer scheduling and execution of weekly drives across multiple locations.</li>
+                        <li>Supporting educational initiatives under Robin Hood Academy by assisting children transitioning into formal schooling.</li>
                     </ul>
                 </div>
             </section>
@@ -293,33 +316,35 @@
 
         <aside class="sidebar">
             <section>
-                <h2>Technical Skills</h2>
+                <h2>Technical Arsenal</h2>
                 <div class="skill-item">
-                    <span class="skill-label">Networking</span>
+                    <span class="skill-label">Exploitation & Scripting</span>
                     <div class="tags">
-                        <span class="tag">OSPF / BGP</span>
-                        <span class="tag">VLANs / STP</span>
-                        <span class="tag">HSRP / EtherChannel</span>
-                        <span class="tag">IPv4 & IPv6 Subnetting</span>
+                        <span class="tag">Python (Exploits)</span>
+                        <span class="tag">Bash / Shell</span>
+                        <span class="tag">Metasploit</span>
+                        <span class="tag">Burp Suite Pro</span>
+                        <span class="tag">Hydra</span>
+                        <span class="tag">John the Ripper</span>
                     </div>
                 </div>
                 <div class="skill-item">
-                    <span class="skill-label">Security</span>
+                    <span class="skill-label">Reconnaissance & Network Analysis</span>
                     <div class="tags">
-                        <span class="tag">ACLs / NAT / PAT</span>
-                        <span class="tag">VPN (IPSec/SSL)</span>
-                        <span class="tag">Firewall (Cisco ASA)</span>
-                        <span class="tag">Penetration Testing</span>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <span class="skill-label">Tools & Platforms</span>
-                    <div class="tags">
-                        <span class="tag">Cisco IOS</span>
-                        <span class="tag">Linux (RHEL/Kali)</span>
+                        <span class="tag">Nmap</span>
                         <span class="tag">Wireshark</span>
-                        <span class="tag">Ansible / Git</span>
+                        <span class="tag">Aircrack-ng</span>
+                        <span class="tag">OSINT Techniques</span>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-label">Platforms & Environments</span>
+                    <div class="tags">
+                        <span class="tag">Kali Linux</span>
+                        <span class="tag">Parrot OS</span>
+                        <span class="tag">Linux Internals</span>
                         <span class="tag">Docker</span>
+                        <span class="tag">Virtual Labs</span>
                     </div>
                 </div>
             </section>
@@ -329,18 +354,19 @@
                 <div class="sidebar-entry">
                     <div class="sidebar-entry-title">B.Sc. Computer Science</div>
                     <div class="sidebar-entry-sub">NES Ratnam College</div>
-                    <div class="sidebar-entry-sub">Graduated Oct 2024</div>
+                    <div class="sidebar-entry-sub">Graduated: Oct 2024</div>
+                    <div class="sidebar-entry-sub" style="font-size: 9pt; margin-top: 4px;"><strong>Relevant Coursework:</strong> Network Security, Cryptography, Cyber Forensics, Operating Systems, DBMS</div>
                 </div>
             </section>
 
             <section>
                 <h2>Professional Training</h2>
                 <div class="sidebar-entry">
-                    <div class="sidebar-entry-title">CCNA Training</div>
+                    <div class="sidebar-entry-title">CEH Training</div>
                     <div class="sidebar-entry-sub">Connecting Cyber Networks</div>
                 </div>
                 <div class="sidebar-entry">
-                    <div class="sidebar-entry-title">CEH Training</div>
+                    <div class="sidebar-entry-title">CCNA Training</div>
                     <div class="sidebar-entry-sub">Connecting Cyber Networks</div>
                 </div>
             </section>

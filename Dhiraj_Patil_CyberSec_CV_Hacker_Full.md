@@ -13,7 +13,7 @@
 
 ## // MISSION BRIEFING
 
-Cybersecurity researcher with rigorous training in **Ethical Hacking (CEH)** and a strong focus on **offensive security**, **vulnerability assessment**, and **exploit development**. Experienced in identifying security flaws in IoT devices and web applications. Developer of custom security tools for **traffic analysis** and **endpoint security**. Adept at using industry-standard tools to conduct rigorous penetration tests.
+Cybersecurity researcher with rigorous training in **Ethical Hacking (CEH)** and a strong focus on **offensive security**, **vulnerability assessment**, and **exploit development**. Experienced in identifying security flaws in IoT devices and web applications. Adept at using industry-standard tools to conduct rigorous penetration tests and vulnerability research.
 
 ---
 
@@ -33,21 +33,15 @@ Cybersecurity researcher with rigorous training in **Ethical Hacking (CEH)** and
 
 ---
 
-## // DEPLOYED EXPLOITS & TOOLS
+## // DEPLOYED EXPLOITS & RESEARCH
 
-### 1. Packet Sniffer & Anomaly Detector
-> `Python` `Scapy` `Wireshark`
+### 1. IoT Vulnerability Research (BlueDucky)
+> `Python` `BlueZ` `DuckyScript` `CVE-2023-45866`
 
-*   **Objective:** Real-time network traffic analyzer to detect suspicious patterns.
-*   **Impact:** Identifies SYN floods, clear-text credentials, and protocol anomalies by parsing TCP/IP headers.
+*   **Objective:** Implementation and research of CVE-2023-45866 for unauthenticated peering.
+*   **Impact:** Demonstrated critical flaws in Bluetooth implementation, allowing **Keystroke Injection** on Android/Linux devices using the BlueDucky framework.
 
-### 2. Automated Keylogger & Exfiltration Simulator
-> `Python` `Cryptography` `Socket Programming`
-
-*   **Objective:** Controlled malware simulation to demonstrate endpoint security risks.
-*   **Impact:** Captures keystrokes and transmits them securely via SMTP/TCP to a C2 server for behavioral analysis study.
-
-### 3. WikiCrawler (OSINT & Automation)
+### 2. WikiCrawler (OSINT & Automation)
 > `Python` `NetworkX` `AI`
 
 *   **Objective:** Reconnaissance tool using Bi-directional BFS for entity mapping.
@@ -63,8 +57,8 @@ Cybersecurity researcher with rigorous training in **Ethical Hacking (CEH)** and
     *   *Coursework:* Network Security, Cryptography, Cyber Forensics.
 
 **[ CERTIFICATIONS & TRAINING ]**
-*   `[+]` **Certified Ethical Hacker (CEH)** – Connecting Cyber Networks (Training)
-*   `[+]` **Cisco Certified Network Associate (CCNA)** – Connecting Cyber Networks (Training)
+*   `[+]` **Certified Ethical Hacker (CEH)** – Connecting Cyber Networks (Training Completed)
+*   `[+]` **Cisco Certified Network Associate (CCNA)** – Connecting Cyber Networks (Training Completed)
 
 ---
 `root@kali:~$ help`

@@ -466,25 +466,15 @@
         </section>
 
         <section class="section">
-            <h2><i class="fas fa-code-branch"></i> Deployed Exploits & Tools</h2>
+            <h2><i class="fas fa-code-branch"></i> Deployed Exploits & Research</h2>
             <div class="project-grid">
                 <div class="project-card">
-                    <span class="tech-stack">[ Python | Scapy | Wireshark ]</span>
-                    <h3>Packet Sniffer & Anomaly Detector</h3>
+                    <span class="tech-stack">[ Python | BlueZ | DuckyScript ]</span>
+                    <h3>IoT Vulnerability Research (BlueDucky)</h3>
                     <ul>
-                        <li>Real-time traffic analyzer to detect suspicious patterns.</li>
-                        <li>Identifies SYN floods and clear-text credentials.</li>
-                        <li>Parses TCP/IP headers for protocol anomaly detection.</li>
-                    </ul>
-                </div>
-
-                <div class="project-card">
-                    <span class="tech-stack">[ Python | Cryptography | Sockets ]</span>
-                    <h3>Keylogger & Exfiltration Sim</h3>
-                    <ul>
-                        <li>Controlled malware simulation for endpoint security study.</li>
-                        <li>Captures keystrokes and transmits via secure SMTP/TCP.</li>
-                        <li>Demonstrates behavioral analysis and AV evasion.</li>
+                        <li>Utilized <strong>BlueDucky</strong> to demonstrate CVE-2023-45866.</li>
+                        <li>Demonstrated unauthenticated peering and Keystroke Injection.</li>
+                        <li>Highlighted critical flaws in Bluetooth implementation.</li>
                     </ul>
                 </div>
 
@@ -500,7 +490,7 @@
         </section>
 
         <section class="section">
-            <h2><i class="fas fa-graduation-cap"></i> Credentials</h2>
+            <h2><i class="fas fa-graduation-cap"></i> Credentials & Training</h2>
             <div class="project-card" style="border-left: 3px solid var(--highlight-color);">
                 <h3>B.Sc. in Computer Science</h3>
                 <p><strong>NES Ratnam College of Arts, Science & Commerce</strong> | Graduated: Oct 2024</p>
@@ -578,9 +568,8 @@
                                    "-rw-r--r--  docker_config.yml";
                         break;
                     case 'projects':
-                        response = "1. <span style='color:var(--text-color)'>Packet Sniffer</span> (Traffic Anomaly Detection)<br>" +
-                                   "2. <span style='color:var(--text-color)'>Keylogger Sim</span> (Endpoint Security Testing)<br>" +
-                                   "3. <span style='color:var(--text-color)'>WikiCrawler</span> (AI-powered OSINT tool)";
+                        response = "1. <span style='color:var(--text-color)'>IoT Research</span> (BlueDucky / CVE-2023-45866)<br>" +
+                                   "2. <span style='color:var(--text-color)'>WikiCrawler</span> (AI-powered OSINT tool)";
                         break;
                     case 'education':
                         response = "B.Sc. Computer Science - NES Ratnam College (2024)<br>GPA: 3.X/4.0 | Focus: Network Security";
