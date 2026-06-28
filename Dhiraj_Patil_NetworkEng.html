@@ -41,8 +41,8 @@
             margin: 0;
             padding: 0;
             width: 210mm;
-            height: 297mm;
-            overflow: hidden;
+            min-height: 297mm;
+            overflow: visible;
         }
 
         /* Top Header Area */
@@ -90,7 +90,7 @@
             display: grid;
             grid-template-columns: 67% 33%;
             background: linear-gradient(to right, white 67%, var(--bg-sidebar) 67%);
-            height: 265mm; /* 297mm - 32mm */
+            min-height: calc(297mm - 32mm);
         }
 
         /* Main Content */
