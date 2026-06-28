@@ -24,7 +24,7 @@
             }
             @page { 
                 size: A4; 
-                margin: 0; 
+                margin: 15mm 0; 
             }
         }
 
@@ -34,10 +34,10 @@
 
         body {
             font-family: 'Inter', -apple-system, sans-serif;
-            font-size: 9pt;
+            font-size: 9.5pt;
             color: var(--text-main);
             background: #ffffff;
-            line-height: 1.3;
+            line-height: 1.4;
             margin: 0;
             padding: 0;
             width: 210mm;
@@ -49,24 +49,24 @@
         header {
             background-color: var(--primary);
             color: white;
-            padding: 6mm 12mm;
+            padding: 10mm 12mm;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 30mm; /* Fixed height for consistency */
+            min-height: 32mm;
         }
 
         .header-title h1 {
             margin: 0;
-            font-size: 17pt;
+            font-size: 19pt;
             font-weight: 800;
             letter-spacing: -0.02em;
             text-transform: uppercase;
         }
 
         .header-title p {
-            margin: 3px 0 0;
-            font-size: 8.5pt;
+            margin: 4px 0 0;
+            font-size: 9.5pt;
             font-weight: 500;
             color: #94a3b8;
             letter-spacing: 0.05em;
@@ -75,8 +75,8 @@
 
         .header-contact {
             text-align: right;
-            font-size: 8.5pt;
-            line-height: 1.35;
+            font-size: 9pt;
+            line-height: 1.45;
         }
 
         .header-contact a {
@@ -90,22 +90,22 @@
             display: grid;
             grid-template-columns: 67% 33%;
             background: linear-gradient(to right, white 67%, var(--bg-sidebar) 67%);
-            min-height: calc(297mm - 30mm);
+            min-height: calc(297mm - 32mm);
         }
 
         /* Main Content */
         .main-content {
-            padding: 5mm 6mm 0 12mm;
+            padding: 8mm 6mm 8mm 12mm;
         }
 
         /* Sidebar */
         .sidebar {
-            padding: 5mm 12mm 0 6mm;
+            padding: 8mm 12mm 8mm 6mm;
             border-left: 1px solid var(--border-color);
         }
 
         section {
-            margin-bottom: 8px;
+            margin-bottom: 15px;
             break-inside: avoid;
         }
 
@@ -115,70 +115,70 @@
         }
 
         h2 {
-            font-size: 9.5pt;
+            font-size: 10.5pt;
             font-weight: 700;
             color: var(--accent);
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            margin: 0 0 5px 0;
-            padding-bottom: 2px;
+            margin: 0 0 8px 0;
+            padding-bottom: 4px;
             border-bottom: 1px solid var(--border-color);
         }
 
         /* Entry Styling */
         .entry {
-            margin-bottom: 6px;
+            margin-bottom: 12px;
         }
 
         .entry-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 1px;
+            margin-bottom: 2px;
         }
 
         .entry-title {
-            font-size: 10pt;
+            font-size: 11pt;
             font-weight: 700;
             color: var(--primary);
         }
 
         .entry-date {
-            font-size: 7.5pt;
+            font-size: 8.5pt;
             font-weight: 600;
             color: var(--text-muted);
             text-transform: uppercase;
         }
 
         .entry-subtitle {
-            font-size: 8.5pt;
+            font-size: 9.5pt;
             font-weight: 600;
             color: var(--accent);
-            margin-bottom: 1px;
+            margin-bottom: 4px;
         }
 
         ul {
             margin: 0;
-            padding-left: 12px;
+            padding-left: 16px;
         }
 
         li {
-            font-size: 8.5pt;
-            margin-bottom: 1px;
+            font-size: 9pt;
+            margin-bottom: 3px;
             color: var(--text-main);
-            line-height: 1.3;
+            line-height: 1.4;
         }
 
         /* Sidebar Specifics */
         .skill-item {
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
 
         .skill-label {
-            font-size: 8.5pt;
+            font-size: 9.5pt;
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 2px;
+            margin-bottom: 4px;
             display: block;
         }
 
@@ -192,34 +192,34 @@
             background: white;
             border: 1px solid #d1d5db;
             color: var(--text-main);
-            font-size: 7.5pt;
+            font-size: 8pt;
             font-weight: 500;
-            padding: 1px 4px;
-            border-radius: 3px;
+            padding: 2px 6px;
+            border-radius: 4px;
         }
 
         .sidebar-entry {
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
 
         .sidebar-entry-title {
-            font-size: 9.5pt;
+            font-size: 10pt;
             font-weight: 700;
             color: var(--primary);
         }
 
         .sidebar-entry-sub {
-            font-size: 8.5pt;
+            font-size: 9pt;
             color: var(--text-muted);
             margin-top: 1px;
         }
 
         .profile-summary {
-            font-size: 8.5pt;
+            font-size: 9pt;
             color: var(--text-main);
             text-align: justify;
-            margin-bottom: 8px;
-            line-height: 1.35;
+            margin-bottom: 12px;
+            line-height: 1.45;
         }
     </style>
 </head>
@@ -246,7 +246,7 @@
             <section>
                 <h2>Professional Summary</h2>
                 <div class="profile-summary">
-                    Highly motivated Network Support Executive with hands-on enterprise production support experience and rigorous CCNA & CEH training. Specialized in securing wireless network boundaries, troubleshooting RADIUS authentication/captive portal environments, and managing multi-vendor firewalls (Palo Alto, Check Point, Cisco ASA). Proficient in policy configuration, NAT/PAT rules, Access Control Lists, vulnerability assessment, and syslog/threat monitoring. Seeking to apply practical network security and firewall engineering skills in an enterprise security team.
+                    Highly motivated Network Support Executive with hands-on enterprise production support experience and rigorous CCNA & CEH training. Specialized in securing wireless network boundaries, troubleshooting guest captive portal/RADIUS logins, and administrating multi-vendor firewalls (Palo Alto PAN-OS, Check Point Gaia, Cisco ASA). Proficient in policy configuration, NAT/PAT rules, Access Control Lists, vulnerability assessment, and syslog/threat monitoring. Seeking to apply practical network security and firewall engineering skills in an enterprise security team.
                 </div>
             </section>
 
@@ -257,13 +257,13 @@
                         <span class="entry-title">Microsense Networks Private Limited</span>
                         <span class="entry-date">May 2026 – Present</span>
                     </div>
-                    <div class="entry-subtitle">Network Support Executive (Deployed at ITC Grand Central Hotel)</div>
+                    <div class="entry-subtitle">Network Support Executive (Deployed at ITC Grand Central Hotel, Mumbai)</div>
                     <ul>
-                        <li>Support a live, high-traffic enterprise network, ensuring network security and uptime for hospitality operations.</li>
-                        <li>Troubleshoot guest captive portal issues, diagnosing authentication and login failures against corporate RADIUS servers.</li>
-                        <li>Perform packet capturing and analysis using Wireshark to isolate network anomalies, latency, and rogue traffic.</li>
-                        <li>Coordinate deployment and validation of wireless access points, ensuring correct VLAN segmentation and access controls.</li>
-                        <li>Document security and network incidents, and escalate advanced routing or firewall policy issues to senior engineers.</li>
+                        <li>Support a live, high-traffic enterprise network, ensuring network security boundary integrity and wireless network uptime.</li>
+                        <li>Troubleshoot guest captive portal loops and user authentication failures against corporate RADIUS servers integrated with Property Management Systems (Opera PMS).</li>
+                        <li>Perform real-time packet capturing and analysis using Wireshark to isolate wireless network anomalies, rogue DHCP servers, and ARP spoofing indicators.</li>
+                        <li>Coordinate deployment and validation of wireless access points, verifying appropriate VLAN segmentation, Port Security, and SSID access controls.</li>
+                        <li>Maintain incident documentation logs and systematically escalate complex routing anomalies or firewall policy blocks to L3 engineering teams.</li>
                     </ul>
                 </div>
             </section>
@@ -278,9 +278,10 @@
                     </div>
                     <div class="entry-subtitle">Security Policy Design & Firewall Hardening</div>
                     <ul>
-                        <li>Configured and managed security policies, static/dynamic NAT/PAT, and ACLs on Palo Alto, Check Point, and Cisco ASA firewalls.</li>
-                        <li>Implemented URL filtering, user authentication, security profiles (IPS/IDS), and logging/syslog alerting.</li>
-                        <li>Deployed active/passive High Availability (HA) failover clusters to validate network resilience and failover times.</li>
+                        <li>Configured security policies based on App-ID and User-ID on <strong>Palo Alto (PAN-OS)</strong>; applied Antivirus, Vulnerability, and URL Filtering profiles for threat prevention; established Active/Passive HA failovers.</li>
+                        <li>Configured Gaia OS gateways managed via Check Point SmartConsole, deploying ClusterXL HA, static/dynamic NAT rules, and IPSec VPN tunnels.</li>
+                        <li>Administrated Cisco ASA CLI, configuring interface security levels, static/twice NAT, ACLs, IPSec site-to-site VPNs, and Remote Access AnyConnect VPNs.</li>
+                        <li>Hardened management planes across all virtual firewalls using SSH access lists and disabling insecure services.</li>
                     </ul>
                 </div>
 
@@ -291,9 +292,9 @@
                     </div>
                     <div class="entry-subtitle">Vulnerability Assessment & Custom Tooling</div>
                     <ul>
-                        <li>Researched CVE-2023-45866 using the BlueDucky framework, demonstrating keystroke injection vulnerabilities on Android/Linux.</li>
-                        <li>Developed a custom Python script using Scapy for real-time deep packet analysis to detect SYN floods and clear-text credentials.</li>
-                        <li>Conducted reconnaissance, scanning, and OWASP Top 10 web app testing using Nmap, Metasploit, and Burp Suite.</li>
+                        <li>Researched Bluetooth HID injection vulnerabilities (CVE-2023-45866) using the BlueDucky framework, demonstrating keystroke injections on Android/Linux.</li>
+                        <li>Developed a Scapy-based deep packet traffic sniffer in Python to detect and log SYN flood attacks and clear-text credential leakage.</li>
+                        <li>Conducted reconnaissance, host scanning, and OWASP Top 10 web application testing using Nmap, Metasploit, and Burp Suite Pro.</li>
                     </ul>
                 </div>
             </section>
@@ -303,13 +304,13 @@
                 <div class="entry">
                     <div class="entry-header">
                         <span class="entry-title">Regional Coordinator</span>
-                        <span class="entry-date">Ongoing</span>
+                        <span class="entry-date">Bhandup–Mumbra Region</span>
                     </div>
-                    <div class="entry-subtitle">Robin Hood Army – Bhandup–Mumbra Region</div>
+                    <div class="entry-subtitle">Robin Hood Army (Zero-Funds Model)</div>
                     <ul>
-                        <li>Coordinate volunteer distribution drives and food collection operations in a zero-funds model to serve underprivileged groups.</li>
-                        <li>Manage and schedule volunteer shifts across multiple locations to ensure weekly drive completion.</li>
-                        <li>Support Robin Hood Academy educational initiatives by teaching basic subjects and helping kids transition to formal schools.</li>
+                        <li>Coordinate volunteer distribution drives and food collection logistics, managing a team of 30+ volunteers.</li>
+                        <li>Schedule weekly distribution drives across regional hubs, resolving logistics bottlenecks.</li>
+                        <li>Support educational initiatives under the Robin Hood Academy, teaching basic Math, English, and Science to underprivileged street children.</li>
                     </ul>
                 </div>
             </section>
@@ -321,23 +322,24 @@
                 <div class="skill-item">
                     <span class="skill-label">Security & Firewalls</span>
                     <div class="tags">
-                        <span class="tag">Palo Alto</span>
-                        <span class="tag">Check Point</span>
+                        <span class="tag">Palo Alto (PAN-OS)</span>
+                        <span class="tag">Check Point (Gaia)</span>
                         <span class="tag">Cisco ASA</span>
                         <span class="tag">Security Policies</span>
                         <span class="tag">NAT / PAT / ACLs</span>
                         <span class="tag">IPSec VPN</span>
                         <span class="tag">IPS / IDS / URL Filter</span>
+                        <span class="tag">ClusterXL HA</span>
                     </div>
                 </div>
                 <div class="skill-item">
                     <span class="skill-label">Recon & Analysis</span>
                     <div class="tags">
-                        <span class="tag">Wireshark</span>
-                        <span class="tag">Nmap</span>
+                        <span class="tag">Wireshark / Tcpdump</span>
+                        <span class="tag">Nmap / Nessus</span>
                         <span class="tag">Vulnerability Scan</span>
                         <span class="tag">Metasploit / Burp Pro</span>
-                        <span class="tag">Syslog / syslog-ng</span>
+                        <span class="tag">Syslog Monitoring</span>
                         <span class="tag">Packet Inspection</span>
                     </div>
                 </div>
