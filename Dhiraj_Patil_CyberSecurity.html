@@ -3,27 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dhiraj Patil - Cybersecurity Analyst CV</title>
+    <title>Dhiraj Patil - Network Security & Firewall Engineer CV</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #0f172a;
-            --accent: #dc2626; /* Changed to Red for Cyber/Security vibe, or keep blue? Let's go with a darker red/crimson for "Red Team" feel */
-            --text-main: #334155;
-            --text-muted: #64748b;
-            --bg-sidebar: #f8fafc;
-            --border-color: #cbd5e1;
-        }
-
-        /* Override accent to a security-red/orange if desired, or stick to professional blue. 
-           Let's stick to the structure but maybe slightly tweak the accent color to distinguish it. 
-           Actually, the user asked to "follow the format", which usually implies the same design. 
-           I'll keep the blue --accent: #1e40af; to be safe, or maybe a "Security Blue".
-           Let's keep the original blue to ensure it looks like a set.
-        */
-        :root {
-            --primary: #0f172a;
-            --accent: #1e40af; 
+            --accent: #1e40af;
             --text-main: #334155;
             --text-muted: #64748b;
             --bg-sidebar: #f8fafc;
@@ -52,11 +37,12 @@
             font-size: 9.5pt;
             color: var(--text-main);
             background: #ffffff;
-            line-height: 1.3;
+            line-height: 1.35;
             margin: 0;
             padding: 0;
             width: 210mm;
-            min-height: 297mm;
+            height: 297mm;
+            overflow: hidden;
         }
 
         /* Top Header Area */
@@ -67,7 +53,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 30mm;
+            height: 32mm; /* Fixed height for consistency */
         }
 
         .header-title h1 {
@@ -79,7 +65,7 @@
         }
 
         .header-title p {
-            margin: 2px 0 0;
+            margin: 4px 0 0;
             font-size: 9pt;
             font-weight: 500;
             color: #94a3b8;
@@ -89,7 +75,7 @@
 
         .header-contact {
             text-align: right;
-            font-size: 9pt;
+            font-size: 8.5pt;
             line-height: 1.4;
         }
 
@@ -104,7 +90,7 @@
             display: grid;
             grid-template-columns: 67% 33%;
             background: linear-gradient(to right, white 67%, var(--bg-sidebar) 67%);
-            min-height: 267mm;
+            height: 265mm; /* 297mm - 32mm */
         }
 
         /* Main Content */
@@ -129,7 +115,7 @@
         }
 
         h2 {
-            font-size: 10.5pt;
+            font-size: 10pt;
             font-weight: 700;
             color: var(--accent);
             text-transform: uppercase;
@@ -158,14 +144,14 @@
         }
 
         .entry-date {
-            font-size: 9pt;
+            font-size: 8pt;
             font-weight: 600;
             color: var(--text-muted);
             text-transform: uppercase;
         }
 
         .entry-subtitle {
-            font-size: 9.5pt;
+            font-size: 9pt;
             font-weight: 600;
             color: var(--accent);
             margin-bottom: 2px;
@@ -173,11 +159,11 @@
 
         ul {
             margin: 0;
-            padding-left: 16px;
+            padding-left: 14px;
         }
 
         li {
-            font-size: 9.5pt;
+            font-size: 9pt;
             margin-bottom: 2px;
             color: var(--text-main);
             line-height: 1.35;
@@ -185,14 +171,14 @@
 
         /* Sidebar Specifics */
         .skill-item {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .skill-label {
-            font-size: 10pt;
+            font-size: 9pt;
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 4px;
+            margin-bottom: 3px;
             display: block;
         }
 
@@ -206,34 +192,34 @@
             background: white;
             border: 1px solid #d1d5db;
             color: var(--text-main);
-            font-size: 9pt;
+            font-size: 8pt;
             font-weight: 500;
-            padding: 2px 6px;
-            border-radius: 4px;
+            padding: 1px 5px;
+            border-radius: 3px;
         }
 
         .sidebar-entry {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .sidebar-entry-title {
-            font-size: 11pt;
+            font-size: 10pt;
             font-weight: 700;
             color: var(--primary);
         }
 
         .sidebar-entry-sub {
-            font-size: 10pt;
+            font-size: 9pt;
             color: var(--text-muted);
             margin-top: 1px;
         }
 
         .profile-summary {
-            font-size: 10pt;
+            font-size: 9pt;
             color: var(--text-main);
             text-align: justify;
-            margin-bottom: 15px;
-            line-height: 1.5;
+            margin-bottom: 10px;
+            line-height: 1.4;
         }
     </style>
 </head>
@@ -242,7 +228,7 @@
     <header>
         <div class="header-title">
             <h1>Dhiraj Patil</h1>
-            <p>Cybersecurity Analyst | Penetration Tester | CEH & CCNA Trained</p>
+            <p>Network Security Engineer | NOC Security | Firewall Analyst</p>
         </div>
         <div class="header-contact">
             <div>Thane/Mumbai, India</div>
@@ -260,41 +246,56 @@
             <section>
                 <h2>Professional Summary</h2>
                 <div class="profile-summary">
-                    Professional with rigorous training in CEH and CCNA, possessing a strong foundation in offensive security, vulnerability assessment, and penetration testing methodologies. Proven expertise in identifying, exploiting, and documenting security weaknesses across networks and IoT devices. Adept at conducting rigorous security assessments, performing deep-dive vulnerability research, and developing custom tools to enhance security posture. Seeking a role in SOC or VAPT to apply technical research and analysis skills in protecting enterprise environments.
+                    Highly motivated Network Support Executive with hands-on enterprise production support experience and rigorous CCNA & CEH training. Specialized in securing wireless network boundaries, troubleshooting RADIUS authentication/captive portal environments, and managing multi-vendor firewalls (Palo Alto, Check Point, Cisco ASA). Proficient in policy configuration, NAT/PAT rules, Access Control Lists, vulnerability assessment, and syslog/threat monitoring. Seeking to apply practical network security and firewall engineering skills in an enterprise security team.
                 </div>
             </section>
 
             <section>
-                <h2>Technical Experience & Security Research</h2>
+                <h2>Professional Experience</h2>
+                <div class="entry">
+                    <div class="entry-header">
+                        <span class="entry-title">Microsense Networks Private Limited</span>
+                        <span class="entry-date">May 2026 – Present</span>
+                    </div>
+                    <div class="entry-subtitle">Network Support Executive (Deployed at ITC Grand Central Hotel)</div>
+                    <ul>
+                        <li>Support a live, high-traffic enterprise network, ensuring network security and uptime for hospitality operations.</li>
+                        <li>Troubleshoot guest captive portal issues, diagnosing authentication and login failures against corporate RADIUS servers.</li>
+                        <li>Perform packet capturing and analysis using Wireshark to isolate network anomalies, latency, and rogue traffic.</li>
+                        <li>Coordinate deployment and validation of wireless access points, ensuring correct VLAN segmentation and access controls.</li>
+                        <li>Document security and network incidents, and escalate advanced routing or firewall policy issues to senior engineers.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>Security Labs & Research</h2>
                 
                 <div class="entry">
                     <div class="entry-header">
-                        <span class="entry-title">Security Researcher & Tool Developer</span>
-                        <span class="entry-date">Oct 2023 – Present</span>
+                        <span class="entry-title">Multi-Vendor Firewall & Security Lab</span>
+                        <span class="entry-date">Technical Implementation</span>
                     </div>
-                    <div class="entry-subtitle">Independent Research & Open Source Contributions</div>
+                    <div class="entry-subtitle">Security Policy Design & Firewall Hardening</div>
                     <ul>
-                        <li><strong>IoT Vulnerability Research (BlueDucky):</strong> Utilized the BlueDucky framework to automate the identification and exploitation of unauthenticated Bluetooth peering vulnerabilities (CVE-2023-45866), demonstrating keystroke injection risks on Android/Linux.</li>
-                        <li><strong>Network Traffic Anomaly Detector:</strong> Engineered a real-time analyzer using <strong>Scapy</strong> to detect SYN floods and clear-text credential transmission by performing deep packet inspection on TCP/IP headers.</li>
-                        <li><strong>WikiCrawler (OSINT Automation):</strong> Built a reconnaissance tool using Bi-directional BFS and <strong>Gemini AI</strong> for entity relationship mapping and context-aware link investigation.</li>
-                        <li><strong>Endpoint Security Simulation:</strong> Developed a controlled keylogger and exfiltration simulator to demonstrate C2 communication patterns and endpoint security risks for behavioral analysis study.</li>
+                        <li>Configured and managed security policies, static/dynamic NAT/PAT, and ACLs on Palo Alto, Check Point, and Cisco ASA firewalls.</li>
+                        <li>Implemented URL filtering, user authentication, security profiles (IPS/IDS), and logging/syslog alerting.</li>
+                        <li>Deployed active/passive High Availability (HA) failover clusters to validate network resilience and failover times.</li>
                     </ul>
                 </div>
 
                 <div class="entry">
                     <div class="entry-header">
-                        <span class="entry-title">Vulnerability Assessment & Penetration Testing (VAPT)</span>
-                        <span class="entry-date">Technical Implementation</span>
+                        <span class="entry-title">IoT Vulnerability Research & Traffic Analysis</span>
+                        <span class="entry-date">Ongoing Research</span>
                     </div>
-                    <div class="entry-subtitle">Security Operations & Simulation Labs</div>
+                    <div class="entry-subtitle">Vulnerability Assessment & Custom Tooling</div>
                     <ul>
-                        <li>Performed end-to-end penetration testing simulations, including reconnaissance, scanning, enumeration, exploitation, and post-exploitation analysis across various network topologies.</li>
-                        <li>Utilized <strong>Nmap, Metasploit, Burp Suite Pro, and Hydra</strong> to identify and exploit vulnerabilities in web applications and network services.</li>
-                        <li>Assessed web applications against <strong>OWASP Top 10</strong>, identifying critical flaws such as SQL Injection, XSS, and broken authentication.</li>
-                        <li>Prepared comprehensive security reports documenting findings, risk severity, exploitation paths, and actionable remediation strategies.</li>
+                        <li>Researched CVE-2023-45866 using the BlueDucky framework, demonstrating keystroke injection vulnerabilities on Android/Linux.</li>
+                        <li>Developed a custom Python script using Scapy for real-time deep packet analysis to detect SYN floods and clear-text credentials.</li>
+                        <li>Conducted reconnaissance, scanning, and OWASP Top 10 web app testing using Nmap, Metasploit, and Burp Suite.</li>
                     </ul>
                 </div>
-
             </section>
         </main>
 
@@ -302,31 +303,36 @@
             <section>
                 <h2>Technical Arsenal</h2>
                 <div class="skill-item">
-                    <span class="skill-label">Security & Exploitation</span>
+                    <span class="skill-label">Security & Firewalls</span>
                     <div class="tags">
-                        <span class="tag">VAPT Methodologies</span>
-                        <span class="tag">Metasploit / Burp Pro</span>
-                        <span class="tag">CVE Research</span>
-                        <span class="tag">Wireless Security</span>
-                        <span class="tag">Red Teaming Basics</span>
+                        <span class="tag">Palo Alto</span>
+                        <span class="tag">Check Point</span>
+                        <span class="tag">Cisco ASA</span>
+                        <span class="tag">Security Policies</span>
+                        <span class="tag">NAT / PAT / ACLs</span>
+                        <span class="tag">IPSec VPN</span>
+                        <span class="tag">IPS / IDS / URL Filter</span>
                     </div>
                 </div>
                 <div class="skill-item">
-                    <span class="skill-label">Analysis & Recon</span>
+                    <span class="skill-label">Recon & Analysis</span>
                     <div class="tags">
-                        <span class="tag">Nmap / Wireshark</span>
-                        <span class="tag">OSINT Automation</span>
-                        <span class="tag">Traffic Analysis</span>
-                        <span class="tag">Log Analysis</span>
+                        <span class="tag">Wireshark</span>
+                        <span class="tag">Nmap</span>
+                        <span class="tag">Vulnerability Scan</span>
+                        <span class="tag">Metasploit / Burp Pro</span>
+                        <span class="tag">Syslog / syslog-ng</span>
+                        <span class="tag">Packet Inspection</span>
                     </div>
                 </div>
                 <div class="skill-item">
                     <span class="skill-label">Development & Ops</span>
                     <div class="tags">
-                        <span class="tag">Python (Security Tooling)</span>
-                        <span class="tag">Bash / Linux Internals</span>
-                        <span class="tag">Docker / Virtualization</span>
-                        <span class="tag">Git / CI/CD Basics</span>
+                        <span class="tag">Python (basics)</span>
+                        <span class="tag">Ansible (intro)</span>
+                        <span class="tag">Git / GitHub</span>
+                        <span class="tag">Linux (RHEL/Kali)</span>
+                        <span class="tag">Docker</span>
                     </div>
                 </div>
             </section>
@@ -336,8 +342,7 @@
                 <div class="sidebar-entry">
                     <div class="sidebar-entry-title">B.Sc. Computer Science</div>
                     <div class="sidebar-entry-sub">NES Ratnam College</div>
-                    <div class="sidebar-entry-sub">Graduated: Oct 2024</div>
-                    <div class="sidebar-entry-sub" style="font-size: 9pt; margin-top: 4px;"><strong>Relevant Coursework:</strong> Network Security, Cryptography, Cyber Forensics, Operating Systems, DBMS</div>
+                    <div class="sidebar-entry-sub">Graduated Oct 2024</div>
                 </div>
             </section>
 

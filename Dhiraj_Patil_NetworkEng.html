@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dhiraj Patil - Network Engineer CV</title>
+    <title>Dhiraj Patil - Network & NOC Engineer CV</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -34,7 +34,7 @@
 
         body {
             font-family: 'Inter', -apple-system, sans-serif;
-            font-size: 10pt;
+            font-size: 9.5pt;
             color: var(--text-main);
             background: #ffffff;
             line-height: 1.35;
@@ -49,17 +49,16 @@
         header {
             background-color: var(--primary);
             color: white;
-            /* Precise alignment: 12mm outer padding */
-            padding: 10mm 12mm;
+            padding: 8mm 12mm;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 35mm; /* Fixed height for consistency */
+            height: 32mm; /* Fixed height for consistency */
         }
 
         .header-title h1 {
             margin: 0;
-            font-size: 20pt;
+            font-size: 18pt;
             font-weight: 800;
             letter-spacing: -0.02em;
             text-transform: uppercase;
@@ -67,7 +66,7 @@
 
         .header-title p {
             margin: 4px 0 0;
-            font-size: 10pt;
+            font-size: 9pt;
             font-weight: 500;
             color: #94a3b8;
             letter-spacing: 0.05em;
@@ -76,7 +75,7 @@
 
         .header-contact {
             text-align: right;
-            font-size: 9pt;
+            font-size: 8.5pt;
             line-height: 1.4;
         }
 
@@ -89,76 +88,70 @@
         /* Layout Grid */
         .wrapper {
             display: grid;
-            /* Exact split matching the gradient background */
             grid-template-columns: 67% 33%;
-            /* The Faux Column Trick: Gradient creates the sidebar bg */
             background: linear-gradient(to right, white 67%, var(--bg-sidebar) 67%);
-            height: 262mm; /* 297mm (Page) - 35mm (Header) */
+            height: 265mm; /* 297mm - 32mm */
         }
 
         /* Main Content */
         .main-content {
-            /* Top: 8mm, Right: 6mm, Bottom: 0, Left: 12mm (Aligns with Header) */
-            padding: 8mm 6mm 0 12mm;
+            padding: 6mm 6mm 0 12mm;
         }
 
         /* Sidebar */
         .sidebar {
-            /* Background handled by wrapper gradient */
-            /* Top: 8mm, Right: 12mm (Aligns with Header), Bottom: 0, Left: 6mm */
-            padding: 8mm 12mm 0 6mm;
-            border-left: 1px solid var(--border-color); /* Optional: visual separator */
+            padding: 6mm 12mm 0 6mm;
+            border-left: 1px solid var(--border-color);
         }
 
         section {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             break-inside: avoid;
         }
 
-        /* Ensure top alignment across columns */
         .main-content > section:first-child h2,
         .sidebar > section:first-child h2 {
             margin-top: 0;
         }
 
         h2 {
-            font-size: 11pt;
+            font-size: 10pt;
             font-weight: 700;
             color: var(--accent);
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            margin: 0 0 8px 0;
-            padding-bottom: 4px;
+            margin: 0 0 6px 0;
+            padding-bottom: 3px;
             border-bottom: 1px solid var(--border-color);
         }
 
         /* Entry Styling */
         .entry {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .entry-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 2px;
+            margin-bottom: 1px;
         }
 
         .entry-title {
-            font-size: 11.5pt;
+            font-size: 10.5pt;
             font-weight: 700;
             color: var(--primary);
         }
 
         .entry-date {
-            font-size: 9pt;
+            font-size: 8pt;
             font-weight: 600;
             color: var(--text-muted);
             text-transform: uppercase;
         }
 
         .entry-subtitle {
-            font-size: 10pt;
+            font-size: 9pt;
             font-weight: 600;
             color: var(--accent);
             margin-bottom: 2px;
@@ -166,26 +159,26 @@
 
         ul {
             margin: 0;
-            padding-left: 16px;
+            padding-left: 14px;
         }
 
         li {
-            font-size: 10pt;
-            margin-bottom: 3px;
+            font-size: 9pt;
+            margin-bottom: 2px;
             color: var(--text-main);
-            line-height: 1.4;
+            line-height: 1.35;
         }
 
         /* Sidebar Specifics */
         .skill-item {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .skill-label {
-            font-size: 10pt;
+            font-size: 9pt;
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 4px;
+            margin-bottom: 3px;
             display: block;
         }
 
@@ -199,34 +192,34 @@
             background: white;
             border: 1px solid #d1d5db;
             color: var(--text-main);
-            font-size: 9pt;
+            font-size: 8pt;
             font-weight: 500;
-            padding: 2px 6px;
-            border-radius: 4px;
+            padding: 1px 5px;
+            border-radius: 3px;
         }
 
         .sidebar-entry {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .sidebar-entry-title {
-            font-size: 11pt;
+            font-size: 10pt;
             font-weight: 700;
             color: var(--primary);
         }
 
         .sidebar-entry-sub {
-            font-size: 10pt;
+            font-size: 9pt;
             color: var(--text-muted);
             margin-top: 1px;
         }
 
         .profile-summary {
-            font-size: 10pt;
+            font-size: 9pt;
             color: var(--text-main);
             text-align: justify;
-            margin-bottom: 15px;
-            line-height: 1.5;
+            margin-bottom: 10px;
+            line-height: 1.4;
         }
     </style>
 </head>
@@ -235,7 +228,7 @@
     <header>
         <div class="header-title">
             <h1>Dhiraj Patil</h1>
-            <p>Network Engineer | Security Operations | CCNA & CEH Trained</p>
+            <p>Network Engineer | NOC Engineer | Firewall Specialist</p>
         </div>
         <div class="header-contact">
             <div>Thane/Mumbai, India</div>
@@ -253,39 +246,54 @@
             <section>
                 <h2>Professional Summary</h2>
                 <div class="profile-summary">
-                    Detail-oriented professional with comprehensive training in CCNA and CEH, possessing a strong foundation in network infrastructure, security operations, and Linux administration. Proven ability to design, configure, and troubleshoot complex network environments and conduct rigorous security assessments. Adept at leveraging automation (Python/Bash) to optimize network performance and enhance security posture. Seeking an entry-level role in Network Engineering, NOC, or SOC to apply technical expertise in maintaining resilient and secure enterprise infrastructures.
+                    Dynamic and detail-oriented Network Support Executive with hands-on enterprise production experience and rigorous CCNA & CEH training. Specialized in maintaining high-availability wireless infrastructure, troubleshooting complex guest connectivity issues, and managing multi-vendor firewalls (Palo Alto, Check Point, Cisco ASA). Adept at creating security policies, NAT, ACLs, and resolving network incidents under SLA constraints. Passionate about transitioning into Network Security & Firewall Engineering.
                 </div>
             </section>
 
             <section>
-                <h2>Technical Projects & Hands-on Exposure</h2>
+                <h2>Professional Experience</h2>
+                <div class="entry">
+                    <div class="entry-header">
+                        <span class="entry-title">Microsense Networks Private Limited</span>
+                        <span class="entry-date">May 2026 – Present</span>
+                    </div>
+                    <div class="entry-subtitle">Network Support Executive (Deployed at ITC Grand Central Hotel)</div>
+                    <ul>
+                        <li>Deliver on-site 24/7 technical support for high-availability enterprise Wi-Fi networks in a fast-paced hospitality environment.</li>
+                        <li>Troubleshoot guest wireless connectivity, captive portal login failures, and RADIUS/authentication issues.</li>
+                        <li>Conduct signal and traffic diagnostics using Wireshark to isolate wireless performance and latency anomalies.</li>
+                        <li>Manage deployment, hardware replacement, and post-installation validation of wireless Access Points (APs).</li>
+                        <li>Maintain thorough incident documentation and systematically escalate complex network and routing issues to senior teams.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>Technical Projects & Labs</h2>
                 
                 <div class="entry">
                     <div class="entry-header">
-                        <span class="entry-title">Enterprise Network Infrastructure Simulation</span>
+                        <span class="entry-title">Network Security & Firewall Lab</span>
                         <span class="entry-date">Technical Implementation</span>
                     </div>
-                    <div class="entry-subtitle">Multi-Vendor Routing & Switching Environment</div>
+                    <div class="entry-subtitle">Multi-Vendor Security Gateway Management</div>
                     <ul>
-                        <li>Designed and implemented a multi-area <strong>OSPF and BGP</strong> routing architecture to simulate high-availability enterprise connectivity.</li>
-                        <li>Configured <strong>VLANs, Inter-VLAN routing, and STP</strong> to optimize Layer 2 traffic flow and ensure network redundancy.</li>
-                        <li>Hardened network devices by implementing <strong>SSH, secure management planes, and granular Access Control Lists (ACLs)</strong>.</li>
-                        <li>Executed <strong>NAT/PAT</strong> configurations to facilitate secure internet access for internal network segments.</li>
-                        <li>Implemented <strong>IPSec site-to-site VPN</strong> tunnels in a simulated WAN scenario to ensure secure data transmission.</li>
+                        <li>Configured policies, NAT rules, and access controls on physical/virtual <strong>Palo Alto, Check Point, and Cisco ASA</strong> firewalls.</li>
+                        <li>Implemented URL filtering, user authentication, security profiles (IPS/IDS), and logging/syslog alerting.</li>
+                        <li>Deployed active/passive High Availability (HA) configurations to validate network redundancy and failover times.</li>
                     </ul>
                 </div>
 
                 <div class="entry">
                     <div class="entry-header">
-                        <span class="entry-title">Network Traffic Analysis & Security Hardening</span>
-                        <span class="entry-date">Ongoing Research</span>
+                        <span class="entry-title">Enterprise Network Infrastructure Lab</span>
+                        <span class="entry-date">Simulated Environment</span>
                     </div>
-                    <div class="entry-subtitle">Protocol Analysis & Threat Detection</div>
+                    <div class="entry-subtitle">Multi-Vendor Routing, Switching, & Automation</div>
                     <ul>
-                        <li>Utilized <strong>Wireshark and Scapy</strong> to perform Deep Packet Inspection (DPI) for identifying unauthorized network activities and protocol anomalies.</li>
-                        <li>Analyzed TCP/IP handshakes and packet headers to detect potential <strong>SYN floods</strong> and man-in-the-middle (MitM) indicators.</li>
-                        <li>Developed custom <strong>Python scripts</strong> for automated log parsing and real-time traffic monitoring.</li>
-                        <li>Automated repetitive configuration tasks using <strong>Ansible</strong>, improving consistency and reducing manual configuration effort.</li>
+                        <li>Designed enterprise topologies using Cisco IOS; configured multi-area <strong>OSPF, BGP, VLANs, and Inter-VLAN Routing</strong>.</li>
+                        <li>Implemented secure remote access (SSH, ACLs), dynamic NAT/PAT, and site-to-site <strong>IPSec VPN</strong> tunnels.</li>
+                        <li>Automated daily device configuration backups and interface health checks using <strong>Python</strong> and <strong>Ansible</strong>.</li>
                     </ul>
                 </div>
             </section>
@@ -299,26 +307,32 @@
                     <div class="tags">
                         <span class="tag">OSPF / BGP</span>
                         <span class="tag">VLANs / STP</span>
+                        <span class="tag">Inter-VLAN Routing</span>
+                        <span class="tag">Enterprise Wi-Fi</span>
+                        <span class="tag">DHCP / DNS</span>
                         <span class="tag">HSRP / EtherChannel</span>
-                        <span class="tag">IPv4 & IPv6 Subnetting</span>
                     </div>
                 </div>
                 <div class="skill-item">
-                    <span class="skill-label">Security</span>
+                    <span class="skill-label">Firewalls & Security</span>
                     <div class="tags">
-                        <span class="tag">ACLs / NAT / PAT</span>
-                        <span class="tag">VPN (IPSec/SSL)</span>
-                        <span class="tag">Firewall (Cisco ASA)</span>
-                        <span class="tag">Penetration Testing</span>
+                        <span class="tag">Palo Alto</span>
+                        <span class="tag">Check Point</span>
+                        <span class="tag">Cisco ASA</span>
+                        <span class="tag">NAT / PAT / ACLs</span>
+                        <span class="tag">IPSec VPN</span>
+                        <span class="tag">IPS / IDS / URL Filter</span>
+                        <span class="tag">Vulnerability Scan</span>
                     </div>
                 </div>
                 <div class="skill-item">
                     <span class="skill-label">Tools & Platforms</span>
                     <div class="tags">
-                        <span class="tag">Cisco IOS</span>
                         <span class="tag">Linux (RHEL/Kali)</span>
                         <span class="tag">Wireshark</span>
-                        <span class="tag">Ansible / Git</span>
+                        <span class="tag">Python (basics)</span>
+                        <span class="tag">Ansible (intro)</span>
+                        <span class="tag">Git</span>
                         <span class="tag">Docker</span>
                     </div>
                 </div>

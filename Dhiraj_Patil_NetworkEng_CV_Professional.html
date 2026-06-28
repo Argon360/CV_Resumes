@@ -587,7 +587,7 @@
             <div class="profile-header">
                 <div class="avatar"><i class="fas fa-network-wired"></i></div>
                 <h1>Dhiraj Patil</h1>
-                <span class="role">Network Engineer | CCNA Trained</span>
+                <span class="role">Network & NOC Engineer | Firewall Specialist</span>
             </div>
             
             <ul class="contact-list">
@@ -602,11 +602,11 @@
                 <h4 style="color:var(--text-secondary); text-transform:uppercase; font-size:0.8rem; margin-bottom:10px;">Training</h4>
                 <div style="background: var(--bg-color); padding: 10px; border-radius: 4px; margin-bottom: 10px; border: 1px solid var(--border);">
                     <div style="font-weight:bold; color:var(--primary-color);">CCNA</div>
-                    <div style="font-size:0.8rem; color:var(--text-secondary);">Cisco Certified Network Associate (Training)</div>
+                    <div style="font-size:0.8rem; color:var(--text-secondary);">Cisco Certified Network Associate (Training Completed)</div>
                 </div>
                 <div style="background: var(--bg-color); padding: 10px; border-radius: 4px; border: 1px solid var(--border);">
                     <div style="font-weight:bold; color:var(--primary-color);">CEH</div>
-                    <div style="font-size:0.8rem; color:var(--text-secondary);">Certified Ethical Hacker (Training)</div>
+                    <div style="font-size:0.8rem; color:var(--text-secondary);">Certified Ethical Hacker (Training Completed)</div>
                 </div>
             </div>
         </aside>
@@ -619,12 +619,12 @@
                 <div class="panel-header">
                     <div class="panel-title"><i class="fas fa-terminal"></i> Executive Summary</div>
                 </div>
-            <div class="terminal-line">
-                <span class="prompt">Router#</span> show professional_summary
-            </div>
-            <div class="terminal-line" style="margin-bottom: 20px;">
-                CCNA-trained Computer Science graduate with a solid command of <strong>network infrastructure</strong>, <strong>Linux system administration</strong>, and protocol analysis. Proficient in designing secure network architectures, troubleshooting connectivity issues, and managing Linux-based servers. Skilled in <strong>Python</strong> and <strong>Bash</strong> scripting for network automation.
-            </div>
+                <div class="terminal-line">
+                    <span class="prompt">Router#</span> show professional_summary
+                </div>
+                <div class="terminal-line" style="margin-bottom: 20px;">
+                    Dynamic and detail-oriented Network Support Executive with hands-on enterprise production support experience at Microsense Networks and rigorous CCNA & CEH training. Specialized in maintaining high-availability wireless infrastructure, troubleshooting guest captive portal login issues, and configuring multi-vendor firewalls (Palo Alto, Check Point, Cisco ASA). Adept at creating security policies, NAT, ACLs, and resolving network incidents under SLA constraints. Passionate about transitioning into Network Security & Firewall Engineering.
+                </div>
             </section>
 
             <!-- Technical Skills Panel (Switch Style) -->
@@ -638,18 +638,60 @@
                     <div class="switch-port"><div class="port-led"></div><div class="port-label">VLAN</div></div>
                     <div class="switch-port"><div class="port-led"></div><div class="port-label">STP</div></div>
                     <div class="switch-port"><div class="port-led"></div><div class="port-label">VPN</div></div>
-                    <div class="switch-port"><div class="port-led" style="background:#dbab09; box-shadow:0 0 5px #dbab09;"></div><div class="port-label">Python</div></div>
-                    <div class="switch-port"><div class="port-led"></div><div class="port-label">Linux</div></div>
-                    <div class="switch-port"><div class="port-led"></div><div class="port-label">Cisco</div></div>
+                    <div class="switch-port"><div class="port-led"></div><div class="port-label">Palo Alto</div></div>
+                    <div class="switch-port"><div class="port-led"></div><div class="port-label">CheckPoint</div></div>
+                    <div class="switch-port"><div class="port-led"></div><div class="port-label">Cisco ASA</div></div>
+                    <div class="switch-port"><div class="port-led"></div><div class="port-label">Wi-Fi</div></div>
                     <div class="switch-port"><div class="port-led"></div><div class="port-label">Wireshark</div></div>
-                    <div class="switch-port"><div class="port-led"></div><div class="port-label">Docker</div></div>
-                    <div class="switch-port"><div class="port-led"></div><div class="port-label">Bash</div></div>
-                    <div class="switch-port"><div class="port-led"></div><div class="port-label">TCP/IP</div></div>
+                    <div class="switch-port"><div class="port-led"></div><div class="port-label">Linux</div></div>
+                    <div class="switch-port"><div class="port-led" style="background:#dbab09; box-shadow:0 0 5px #dbab09;"></div><div class="port-label">Python</div></div>
+                    <div class="switch-port"><div class="port-led" style="background:#dbab09; box-shadow:0 0 5px #dbab09;"></div><div class="port-label">Ansible</div></div>
+                </div>
+            </section>
+
+            <!-- Running Configuration Panel (Experience & Labs) -->
+            <section class="panel">
+                <div class="panel-header">
+                    <div class="panel-title"><i class="fas fa-file-code"></i> Running Configuration (Experience & Labs)</div>
+                </div>
+                <div class="terminal-window">
+                    <div class="terminal-line"><span class="prompt">Router#</span> show running-config interface GigabitEthernet 0/1</div>
+                    <div class="cli-output">!
+interface GigabitEthernet0/1
+ description "Microsense Networks Private Limited | Network Support Executive"
+ ip address 10.5.20.26 255.255.255.0
+ ! Status: Deployed at ITC Grand Central Hotel, Mumbai (May 2026 - Present)
+ ! Responsibilities:
+ ! - Support 24/7 high-availability wireless infrastructure in production.
+ ! - Troubleshoot client Wi-Fi association, RF latency, and performance.
+ ! - Resolve captive portal user login and RADIUS authentication issues.
+ ! - Coordinate AP deployments, hardware replacements, and validation.
+ ! - Document incidents and escalate L3 network/firewall issues.
+!</div>
+                    <div class="terminal-line"><span class="prompt">Router#</span> show running-config interface GigabitEthernet 0/2</div>
+                    <div class="cli-output">!
+interface GigabitEthernet0/2
+ description "Palo Alto (PAN-OS) | Check Point (Gaia) | Cisco ASA"
+ ip address 172.16.10.1 255.255.255.0
+ ! - Created and managed security policies, static/dynamic NAT, and ACLs.
+ ! - Implemented URL filtering, user authentication, and threat profiles (IPS/IDS).
+ ! - Configured Active/Passive High Availability (HA) failover and logging.
+!</div>
+                    <div class="terminal-line"><span class="prompt">Router#</span> show running-config interface GigabitEthernet 0/3</div>
+                    <div class="cli-output">!
+interface GigabitEthernet0/3
+ description "Routing, Switching, and Automation Simulator"
+ ip address 192.168.1.1 255.255.255.0
+ ! - Designed enterprise networks with multi-area OSPF and BGP routing.
+ ! - Deployed VLANs, trunking (802.1Q), Inter-VLAN routing, and STP.
+ ! - Configured site-to-site IPSec VPN tunnels for secure WAN simulation.
+ ! - Automated daily backup and device health checks via Python & Ansible.
+!</div>
                 </div>
             </section>
 
             <!-- Education (Traceroute Style) -->
-             <section class="panel">
+            <section class="panel">
                 <div class="panel-header">
                     <div class="panel-title"><i class="fas fa-route"></i> Career Route (traceroute)</div>
                 </div>
@@ -659,25 +701,29 @@
                     <div class="hop">
                         <div class="hop-num">1</div>
                         <div class="hop-time">Oct 2024</div>
-                        <div class="hop-name">B.Sc. Comp Sci</div>
+                        <div class="hop-name">B.Sc. CS</div>
                         <div class="hop-detail">NES Ratnam College | Network Sec, Cryptography</div>
                     </div>
 
                     <div class="hop">
                         <div class="hop-num">2</div>
-                        <div class="hop-time">Active</div>
-                        <div class="hop-name">CCNA</div>
-                                        <div class="hop-detail">Cisco Certified Network Associate (Training)</div>
-                                    </div>
-                                    <div class="hop">
-                                        <div class="hop-ip">3.3.3.3</div>
-                                        <div class="hop-time">Active</div>
-                                        <div class="hop-detail">Certified Ethical Hacker (Training)</div>                    </div>
-                     <div class="hop">
+                        <div class="hop-time">Jan 2026</div>
+                        <div class="hop-name">CCNA/CEH</div>
+                        <div class="hop-detail">CCNA & CEH Training Completed (Connecting Cyber Networks)</div>
+                    </div>
+
+                    <div class="hop">
+                        <div class="hop-num">3</div>
+                        <div class="hop-time">May 2026</div>
+                        <div class="hop-name">Support Exec</div>
+                        <div class="hop-detail">Network Support Executive | Microsense Networks (ITC Grand Central)</div>
+                    </div>
+
+                    <div class="hop">
                         <div class="hop-num">4</div>
                         <div class="hop-time">* * *</div>
                         <div class="hop-name">Next Role</div>
-                        <div class="hop-detail">Request timed out (Waiting for Opportunity)</div>
+                        <div class="hop-detail">Network / NOC / Firewall Engineer (Target Opportunity)</div>
                     </div>
                 </div>
             </section>

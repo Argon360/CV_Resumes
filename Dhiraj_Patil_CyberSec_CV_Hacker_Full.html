@@ -453,8 +453,7 @@
         <section class="section">
             <h2><i class="fas fa-user-secret"></i> Mission Briefing</h2>
             <p>
-                Cybersecurity researcher with rigorous training in <strong>Ethical Hacking (CEH)</strong> and a strong focus on <strong>offensive security</strong>, <strong>vulnerability assessment</strong>, and <strong>exploit development</strong>. 
-                Experienced in identifying security flaws in IoT devices and web applications. Adept at using industry-standard tools to conduct rigorous penetration tests and perform deep-dive vulnerability research.
+                Dynamic Network Support Executive with hands-on enterprise production support experience and rigorous training in <strong>CCNA & CEH</strong>. Experienced in securing wireless network boundaries, troubleshooting guest captive portal/RADIUS logins, and administrating multi-vendor firewalls (<strong>Palo Alto, Check Point, Cisco ASA</strong>). Skilled in policy design, NAT/PAT rules, Access Control Lists, vulnerability assessment, packet capture analysis, and Python/Ansible automation. Seeking to defend and optimize resilient enterprise networks in a challenging security role.
             </p>
         </section>
 
@@ -466,24 +465,45 @@
         </section>
 
         <section class="section">
-            <h2><i class="fas fa-code-branch"></i> Deployed Exploits & Research</h2>
+            <h2><i class="fas fa-code-branch"></i> Deployed Operations & Security Labs</h2>
             <div class="project-grid">
                 <div class="project-card">
-                    <span class="tech-stack">[ Python | BlueZ | DuckyScript ]</span>
-                    <h3>IoT Vulnerability Research (BlueDucky)</h3>
+                    <span class="tech-stack">[ Microsense Networks | Deployed at ITC Grand Central ]</span>
+                    <h3>Professional Operations</h3>
                     <ul>
-                        <li>Utilized <strong>BlueDucky</strong> to demonstrate CVE-2023-45866.</li>
-                        <li>Demonstrated unauthenticated peering and Keystroke Injection.</li>
-                        <li>Highlighted critical flaws in Bluetooth implementation.</li>
+                        <li>Support a live, high-traffic enterprise network, ensuring network security and uptime.</li>
+                        <li>Troubleshoot client wireless connectivity and RADIUS captive portal authentication.</li>
+                        <li>Perform packet captures using Wireshark to isolate network anomalies and rogue traffic.</li>
                     </ul>
                 </div>
 
                 <div class="project-card">
-                    <span class="tech-stack">[ Python | NetworkX | AI ]</span>
-                    <h3>WikiCrawler (OSINT & Automation)</h3>
+                    <span class="tech-stack">[ Palo Alto | Check Point | Cisco ASA ]</span>
+                    <h3>Multi-Vendor Firewall Lab</h3>
                     <ul>
-                        <li>Reconnaissance tool using Bi-directional BFS for entity mapping.</li>
-                        <li>Integrated with <strong>Google Gemini</strong> for context analysis.</li>
+                        <li>Created security policies, NAT rules, user authentication, and ACL configurations.</li>
+                        <li>Configured URL filtering, security profiles (IPS/IDS), and syslog logging alerts.</li>
+                        <li>Deployed Active/Passive High Availability (HA) failover clusters for path redundancy.</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <span class="tech-stack">[ Python | CVE-2023-45866 | Scapy ]</span>
+                    <h3>Security Research & R&D</h3>
+                    <ul>
+                        <li>Researched unauthenticated Bluetooth peering vulnerability (BlueDucky framework).</li>
+                        <li>Developed a Scapy-based deep packet traffic analyzer to detect anomalies/SYN floods.</li>
+                        <li>Built WikiCrawler entity relationship mapping automation using Gemini AI.</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <span class="tech-stack">[ Robin Hood Army | Regional Coordinator ]</span>
+                    <h3>Volunteer Operations</h3>
+                    <ul>
+                        <li>Coordinate volunteer distribution drives and food collection operations in a zero-funds model.</li>
+                        <li>Manage and schedule volunteer shifts across multiple locations to ensure weekly drive completion.</li>
+                        <li>Support Robin Hood Academy educational initiatives, teaching kids basic subjects.</li>
                     </ul>
                 </div>
             </div>
@@ -494,11 +514,11 @@
             <div class="project-card" style="border-left: 3px solid var(--highlight-color);">
                 <h3>B.Sc. in Computer Science</h3>
                 <p><strong>NES Ratnam College of Arts, Science & Commerce</strong> | Graduated: Oct 2024</p>
-                <p><em>Relevant Coursework:</em> Network Security, Cryptography, Cyber Forensics, Ethical Hacking.</p>
+                <p><em>Relevant Coursework:</em> Network Security, Cryptography, Cyber Forensics, Operating Systems.</p>
             </div>
             <div style="margin-top: 15px;">
-                <p><i class="fas fa-certificate"></i> <strong>Certified Ethical Hacker (CEH)</strong> – Connecting Cyber Networks (Training)</p>
-                <p><i class="fas fa-certificate"></i> <strong>Cisco Certified Network Associate (CCNA)</strong> – Connecting Cyber Networks (Training)</p>
+                <p><i class="fas fa-certificate"></i> <strong>Cisco Certified Network Associate (CCNA)</strong> – Connecting Cyber Networks (Training Completed)</p>
+                <p><i class="fas fa-certificate"></i> <strong>Certified Ethical Hacker (CEH)</strong> – Connecting Cyber Networks (Training Completed)</p>
             </div>
         </section>
 
@@ -551,7 +571,8 @@
                         response = "Available commands:<br>" +
                                    "  <span style='color:#fff'>ls, ll, skills</span>   : List technical arsenal<br>" +
                                    "  <span style='color:#fff'>whoami</span>           : Display profile overview<br>" +
-                                   "  <span style='color:#fff'>projects</span>         : List deployed exploits & tools<br>" +
+                                   "  <span style='color:#fff'>projects</span>         : List deployed operations & security labs<br>" +
+                                   "  <span style='color:#fff'>volunteer</span>        : Show volunteer & leadership work<br>" +
                                    "  <span style='color:#fff'>cat cv.txt</span>       : Print full text summary<br>" +
                                    "  <span style='color:#fff'>contact, mail</span>    : Show contact info<br>" +
                                    "  <span style='color:#fff'>clear, cls</span>       : Clear terminal<br>" +
@@ -560,33 +581,41 @@
                     case 'ls':
                     case 'll':
                     case 'skills':
-                        response = "drwxr-xr-x  python_scripts/<br>" +
-                                   "drwxr-xr-x  network_tools/<br>" +
-                                   "-rwxr-xr-x  burp_suite_pro<br>" +
-                                   "-rwxr-xr-x  metasploit<br>" +
-                                   "-rw-r--r--  cryptography.key<br>" +
-                                   "-rw-r--r--  docker_config.yml";
+                        response = "drwxr-xr-x  firewall_configs/<br>" +
+                                   "drwxr-xr-x  network_security/<br>" +
+                                   "-rwxr-xr-x  wireshark_sniffer<br>" +
+                                   "-rwxr-xr-x  python_automation<br>" +
+                                   "-rw-r--r--  ansible_playbooks.yml<br>" +
+                                   "-rw-r--r--  rhel_hardening.sh";
                         break;
                     case 'projects':
-                        response = "1. <span style='color:var(--text-color)'>IoT Research</span> (BlueDucky / CVE-2023-45866)<br>" +
-                                   "2. <span style='color:var(--text-color)'>WikiCrawler</span> (AI-powered OSINT tool)";
+                        response = "1. <span style='color:var(--text-color)'>Microsense Networks</span> (Enterprise Production Support)<br>" +
+                                   "2. <span style='color:var(--text-color)'>Multi-Vendor Firewall Lab</span> (Palo Alto, Check Point, Cisco ASA)<br>" +
+                                   "3. <span style='color:var(--text-color)'>Security Tools & R&D</span> (BlueDucky bluetooth research, Scapy parser, WikiCrawler)";
+                        break;
+                    case 'volunteer':
+                        response = "Robin Hood Army - Regional Coordinator (Bhandup-Mumbra Region)<br>" +
+                                   "  - Coordinate weekly distribution drives and food collection logistics<br>" +
+                                   "  - Manage and schedule shifts for regional volunteers<br>" +
+                                   "  - Support educational drives under the Robin Hood Academy";
                         break;
                     case 'education':
-                        response = "B.Sc. Computer Science - NES Ratnam College (2024)<br>GPA: 3.X/4.0 | Focus: Network Security";
+                        response = "B.Sc. Computer Science - NES Ratnam College (Graduated Oct 2024)<br>Focus: Network Security & Cryptography";
                         break;
                     case 'certs':
                     case 'certificates':
-                        response = "[+] Certified Ethical Hacker (CEH) - Training<br>[+] Cisco Certified Network Associate (CCNA) - Training";
+                        response = "[+] Cisco Certified Network Associate (CCNA) - Training Completed<br>[+] Certified Ethical Hacker (CEH) - Training Completed";
                         break;
                     case 'whoami':
                         response = "uid=0(root) gid=0(root) groups=0(root)<br>" +
                                    "Name: Dhiraj Patil<br>" +
-                                   "Role: Cybersecurity Researcher & Penetration Tester";
+                                   "Role: Network Security Engineer | NOC Security | Firewall Specialist";
                         break;
                     case 'contact':
                     case 'mail':
                         response = "Email: <a href='mailto:dp5545385@gmail.com' style='color:inherit'>dp5545385@gmail.com</a><br>" +
-                                   "GitHub: github.com/Argon360";
+                                   "GitHub: github.com/Argon360<br>" +
+                                   "LinkedIn: linkedin.com/in/dhiraj-patil-20a29122b";
                         break;
                     case 'pwd':
                         response = "/home/dhiraj/portfolio";
@@ -600,9 +629,9 @@
                     case 'cat cv.txt':
                     case 'cat cv':
                         response = "LOADING DATA...<br><br>" +
-                                   "Dhiraj Patil - Network & Security Engineer<br>" +
-                                   "Specialized in: Offensive Security, Tool Development, Automation.<br>" +
-                                   "Key Tools: Burp, Nmap, Python, Metasploit.";
+                                   "Dhiraj Patil - Network Security & Firewall Specialist<br>" +
+                                   "Specialized in: Firewall administration, wireless security, traffic analysis, and automation.<br>" +
+                                   "Key Tools: Palo Alto, Check Point, Cisco ASA, Wireshark, Python, Ansible.";
                         break;
                     case 'ping google.com':
                     case 'ping':
@@ -664,16 +693,15 @@
             }
         });
         // --- Configuration ---
-        const roles = ["Cybersecurity Analyst", "Penetration Tester", "CEH Trained", "Exploit Developer"];
+        const roles = ["Network Security Engineer", "NOC Security Analyst", "Firewall Analyst", "Exploit Developer"];
         const skills = [
-            { name: "Python / Scripting", level: 90 },
-            { name: "Burp Suite Pro", level: 85 },
-            { name: "Metasploit / Nmap", level: 88 },
-            { name: "Linux / Bash", level: 92 },
-            { name: "Web App Security", level: 80 },
-            { name: "Network Forensics", level: 75 },
-            { name: "Cryptography", level: 70 },
-            { name: "Docker Security", level: 65 }
+            { name: "Firewalls (Palo Alto/CheckPoint/ASA)", level: 92 },
+            { name: "Network Security (NAT/PAT/ACLs)", level: 94 },
+            { name: "Traffic Analysis (Wireshark)", level: 95 },
+            { name: "Wireless Security (RADIUS)", level: 90 },
+            { name: "Linux Administration (RHEL/Kali)", level: 90 },
+            { name: "Vulnerability Scanning", level: 85 },
+            { name: "Python & Ansible", level: 78 }
         ];
 
         // --- Typing Effect ---

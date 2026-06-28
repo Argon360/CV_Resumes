@@ -1,60 +1,69 @@
 # Dhiraj Patil
-**Network Engineer | Security Operations | CCNA & CEH Trained**
+**Network Engineer | NOC Engineer | Firewall & Network Security Specialist**
 Thane, Maharashtra, India | +91 8652010197
 dp5545385@gmail.com | [LinkedIn](https://www.linkedin.com/in/dhiraj-patil-20a29122b/) | [GitHub](https://github.com/Argon360)
 
 ---
 
 ### PROFESSIONAL SUMMARY
-Detail-oriented professional with comprehensive training in CCNA and CEH, possessing a strong foundation in network infrastructure, security operations, and Linux administration. Proven ability to design, configure, and troubleshoot complex network environments and conduct rigorous security assessments. Adept at leveraging automation (Python/Bash) to optimize network performance and enhance security posture. Seeking an entry-level role in Network Engineering, NOC, or SOC to apply technical expertise in maintaining resilient and secure enterprise infrastructures.
+Dynamic and detail-oriented Network Support Executive with hands-on enterprise production experience and rigorous CCNA & CEH training. Specialized in troubleshooting high-availability enterprise Wi-Fi networks and configuring multi-vendor security gateways (Palo Alto, Check Point, Cisco ASA). Proven track record of resolving complex guest connectivity and captive portal issues in live, high-traffic hospitality production environments. Skilled in policy design, NAT/PAT, ACLs, IPS/IDS, and firewall hardening, alongside Python and Ansible automation. Seeking to leverage on-site support and security operations experience in a challenging Network, NOC, Firewall, or Network Security Engineer role.
 
 ---
 
 ### TECHNICAL SKILLS
-*   **Networking:** Routing (OSPF, BGP, RIP), Switching (VLANs, VTP, STP, Trunking), IPv4/IPv6 Subnetting, EtherChannel, HSRP.
-*   **Security:** ACLs, NAT/PAT, VPN (IPSec/SSL), Firewall Fundamentals, Penetration Testing (Nmap, Metasploit, Burp Suite), Vulnerability Assessment (CVE-2023-45866).
-*   **Tools & Monitoring:** Wireshark, Tcpdump, SNMP, Cisco Packet Tracer, GNS3, Burp Suite Pro, Metasploit Framework.
-*   **Platforms & OS:** Cisco IOS, Linux (RHEL, Kali, Parrot), Windows Server, Docker.
-*   **Automation & Scripting:** Python (Scapy, NetworkX), Bash Scripting, Ansible.
+*   **Networking:** OSPF, BGP, VLANs, Inter-VLAN Routing, DHCP, DNS, HSRP, EtherChannel, Enterprise Wi-Fi, Captive Portals.
+*   **Firewalls & Security:** Palo Alto, Check Point, Cisco ASA, Security Policy Management, NAT/PAT, Access Control Lists (ACLs), IPSec VPN, User Authentication, URL Filtering, IPS/IDS, Firewall Hardening, High Availability (HA).
+*   **Security Assessment:** Vulnerability Scanning, Basic Reconnaissance, Packet Analysis (Wireshark, Tcpdump), syslog, Traffic Monitoring.
+*   **Operating Systems & Platforms:** Linux (RHEL, Kali, Parrot OS), Windows Server, Cisco IOS, Docker.
+*   **Automation & Tools:** Python (basics), Ansible (intro), Git, Cisco Packet Tracer, GNS3.
 
 ---
 
-### TECHNICAL PROJECTS & HANDS-ON EXPOSURE
+### PROFESSIONAL EXPERIENCE
+**Microsense Networks Private Limited** | Mumbai, India
+*Network Support Executive (Deployed at ITC Grand Central Hotel)* | May 2026 – Present
+*   Provide 24/7 on-site enterprise network and wireless infrastructure support in a live, high-traffic hospitality environment.
+*   Troubleshoot and resolve complex enterprise Wi-Fi client association, captive portal authentication (RADIUS), and guest connectivity issues.
+*   Perform deep packet analysis using Wireshark and signal diagnostics to resolve wireless performance degradation and latency.
+*   Coordinate deployment, hardware replacement, configuration, and verification of wireless Access Points (APs) and controllers.
+*   Document network incidents, track outages, and systematically escalate advanced routing or security policy issues to senior engineers.
+*   Interact directly with corporate guests and hotel management, ensuring optimal SLAs and maintaining high client satisfaction.
 
-#### **Enterprise Network Infrastructure Simulation (Lab-based)**
-*   Designed and implemented a multi-area OSPF and BGP routing architecture to simulate high-availability enterprise connectivity.
-*   Configured VLANs, Inter-VLAN routing, and STP to optimize Layer 2 traffic flow and ensure network redundancy.
-*   Hardened network devices by implementing SSH, secure management planes, and granular Access Control Lists (ACLs).
-*   Executed NAT/PAT configurations to facilitate secure internet access for internal network segments.
+---
 
-#### **IoT Vulnerability Research & Implementation (BlueDucky)**
-*   Utilized the BlueDucky framework to identify and exploit unauthenticated Bluetooth peering vulnerabilities (CVE-2023-45866).
-*   Demonstrated the impact of keystroke injection on Android and Linux platforms to highlight critical security gaps in IoT implementations.
-*   Documented research findings and mitigation strategies for endpoint security hardening.
+### TECHNICAL PROJECTS & LAB EXPERIENCE
+**Network Security & Firewall Lab (Multi-Vendor)**
+*   Configured and managed physical and virtual firewalls (Palo Alto PAN-OS, Check Point Gaia, Cisco ASA).
+*   Implemented security policies, Access Control rules, static/dynamic NAT/PAT, and user authentication policies.
+*   Configured URL filtering, security profiles (IPS/IDS, anti-virus, anti-spyware), logging, and syslog alerts for threat detection.
+*   Hardened firewall configurations and deployed High Availability (HA) active/passive failover configurations for business continuity.
 
-#### **Network Traffic Analysis & Anomaly Detection**
-*   Utilized Wireshark and Scapy to perform Deep Packet Inspection (DPI) for identifying unauthorized network activities and protocol anomalies.
-*   Analyzed TCP/IP handshakes and packet headers to detect potential SYN floods and man-in-the-middle (MitM) indicators.
-*   Developed custom Python scripts for automated log parsing and real-time traffic monitoring.
-
-#### **WikiCrawler: OSINT & Network Mapping Tool**
-*   Engineered a reconnaissance tool using Bi-directional BFS algorithms to map and visualize entity relationships from large datasets.
-*   Integrated Google Gemini AI for automated context analysis, improving the efficiency of link investigation during the reconnaissance phase.
+**Enterprise Network Infrastructure Lab**
+*   Designed and simulated high-availability enterprise network topologies using Cisco IOS in GNS3/Packet Tracer.
+*   Configured multi-area OSPF and BGP routing, VLANs, trunking (802.1Q), Inter-VLAN routing, and STP/RSTP.
+*   Deployed secure site-to-site IPSec VPN tunnels to facilitate encrypted traffic exchange over simulated public networks.
+*   Automated repetitive configuration backups and health checks using Python scripts and basic Ansible playbooks.
 
 ---
 
 ### EDUCATION
-*   **B.Sc. in Computer Science** | Oct 2024
-    *   *NES Ratnam College of Arts, Science & Commerce, Mumbai*
-    *   Relevant Coursework: Network Security, Cryptography, Cyber Forensics, Database Management.
+*   **B.Sc. in Computer Science** | NES Ratnam College, Mumbai (Graduated Oct 2024)
+    *   *Core focus:* Network Security, Cryptography, Cyber Forensics, Database Management Systems.
 
 ---
 
-### TRAINING & COURSEWORK
-*   **CCNA (Cisco Certified Network Associate)** – Connecting Cyber Networks (Training Completed)
-*   **CEH (Certified Ethical Hacker)** – Connecting Cyber Networks (Training Completed)
+### PROFESSIONAL TRAINING
+*   **CCNA (Cisco Certified Network Associate) Training** | Connecting Cyber Networks
+*   **CEH (Certified Ethical Hacker) Training** | Connecting Cyber Networks
+
+---
+
+### VOLUNTEER EXPERIENCE
+**Robin Hood Army** | *Regional Coordinator*
+*   Coordinate logistics and manage volunteers across multiple locations for zero-funds food distribution drives.
+*   Supervise weekly distribution drives and support basic educational initiatives (Robin Hood Academy) for underprivileged children.
 
 ---
 
 ### LANGUAGES
-*   English (Professional), Marathi (Native), Hindi (Professional).
+*   English (Professional), Hindi (Professional), Marathi (Native).
